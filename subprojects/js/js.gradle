@@ -1,0 +1,59 @@
+import groovyx.gpars.GParsPool
+
+import org.plovr.*
+import org.plovr.cli.*
+
+apply plugin: 'plovr'
+
+buildscript {
+
+    repositories {
+        maven { url project['maven.jsbuild'] }
+        maven { url project['maven.central'] }
+    }
+
+    dependencies {
+        classpath group: 'org.plovr', name: 'plovr', version: 'f949233'
+        classpath group: 'org.codehaus.gpars', name: 'gpars', version: '0.12'
+    }
+}
+
+plovrJar = getFile buildscript.configurations.classpath, 'plovr'
+
+project['build.apps'].split(',').each { app ->
+    String camelApp = app[0].toUpperCase() + app[1..-1]
+
+    task "debug${camelApp}"() {
+        inputs.dir 'externs'
+        inputs.dir 'libs'
+        inputs.dir 'locale'
+        inputs.dir 'src'
+        inputs.dir 'config'
+        inputs.dir 'closure'
+
+        inputs.property 'buildUri', staticUrl
+        inputs.property 'buildId', jobId
+        inputs.property 'locale', project['build.locales']
+        inputs.property 'whitespace', project.hasProperty('whitespace')
+
+        outputs.dir "${project.buildDir}/${app}"
+
+        doLast {
+            File configFile = generatePlovrConfig app, 'en_US', 'dev', [
+                'whitespace': project.hasProperty('whitespace')
+            ]
+
+            javaexec {
+                main = '-jar'
+                args = [ plovrJar, 'build', configFile.path]
+            }
+
+            project['build.locales'].split(',').minus('en_US').each { locale ->
+                copy {
+                    from "${project.buildDir}/${app}/en_US"
+                    into "${project.buildDir}/${app}/${locale}"
+                }
+            }
+        }
+    }
+}

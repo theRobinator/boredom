@@ -1,0 +1,13 @@
+import com.zoosk.gradle.tasks.Sass
+
+buildscript {
+
+	repositories {
+        maven { url project['maven.jsbuild'] }
+    }
+
+    dependencies {
+        classpath group: 'com.sass', name: 'sass', version: '3.1.15', ext: 'jar'
+        classpath group: 'org.jruby', name: 'jruby', version: '1.6.7.2', ext: 'jar'
+    }
+}

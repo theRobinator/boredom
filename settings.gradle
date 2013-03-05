@@ -1,0 +1,12 @@
+include 'js'
+include 'node'
+
+rootProject.name = System.getenv('JOB_NAME') ?: 'locale'
+
+rootProject.children.each { project ->
+    String projectName = project.name
+    project.buildFileName = "${projectName}.gradle"
+    project.projectDir = new File(settingsDir, "subprojects/${projectName}")
+    assert project.projectDir.isDirectory()
+    assert project.buildFile.isFile()
+}

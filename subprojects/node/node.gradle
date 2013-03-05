@@ -1,0 +1,16 @@
+apply plugin: 'base'
+
+task debugNode(type: Copy) {
+    from fileTree("${projectDir}/src") {
+        include 'public/**'
+        include 'routes/**'
+        include 'views/**'
+        include 'api/**'
+        include 'node_modules/**'
+        include '*.js'
+        include 'package.json'
+        include 'privatekey.pem'
+        include 'certificate.pem'
+    }
+    into buildDir
+}

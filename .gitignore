@@ -1,0 +1,8 @@
+*~
+#*
+build
+.gradle
+subprojects/css/build
+subprojects/js/build
+subprojects/node/build
+subprojects/php/build

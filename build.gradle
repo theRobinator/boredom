@@ -1,0 +1,27 @@
+buildscript {
+
+    repositories {
+        maven { url project['maven.jsbuild'] }
+    }
+
+    dependencies {
+        classpath group: 'com.zoosk', name: 'gradle-web-plugins', version: '1.0'
+    }
+}
+
+apply plugin: 'maven'
+apply plugin: 'zoosk'
+
+task debugNode(type: Copy, dependsOn: ':node:debugNode') {
+    from fileTree(project(':node').buildDir)
+    into buildDir
+}
+
+project['build.apps'].split(',').each { app ->
+    String camelApp = app[0].toUpperCase() + app[1..-1]
+
+    task "debug${camelApp}"(type: Copy, dependsOn: ":js:debug${camelApp}") {
+        from fileTree("${project(':js').buildDir}/${app}")
+        into "${buildDir}/public/js"
+    }
+}

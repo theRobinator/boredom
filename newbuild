@@ -1,0 +1,14 @@
+#! /usr/bin/env bash
+while [ ! -e gradlew ] && [ "$PWD" != "/" ]; do
+    cd ..
+done
+
+if [ ! -e gradlew ]; then
+    echo "You have to run this command from somewhere inside a locale checkout."
+    exit 1
+fi
+
+./gradlew $@
+cd build
+export NODE_PATH="$PWD"
+node app.js

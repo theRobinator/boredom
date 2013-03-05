@@ -1,0 +1,10 @@
+<!doctype html>
+<html>
+<head>
+    <title>YEAHHHHHH</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div  ng-controller="IndexCtrl" ng-include src="'index.soy'" id="index"></div>
+    <script src="js/angular.min.js"></script>
+    <script src="js/en_US/module_index.js"></script>
