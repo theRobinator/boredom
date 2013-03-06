@@ -1,4 +1,4 @@
-<?
+<?php
 class DBConnection {
     private static $instance;
 
@@ -46,6 +46,19 @@ class DBConnection {
      */
     public function query($query) {
         return mysql_query($query);
+    }
+
+    /**
+     * @param String $query
+     * @return array
+     */
+    public function firstResult($query) {
+        $resource = $this->query($query);
+        if ($resource !== false && $row = mysql_fetch_array($resource)) {
+            return $row;
+        } else {
+            return null;
+        }
     }
 }
 ?>

@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="606ee428-4f1c-4f86-8169-1312ced97a17" name="Default" comment="" />
+    <list default="true" id="606ee428-4f1c-4f86-8169-1312ced97a17" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/subprojects/php/hello.php" afterPath="$PROJECT_DIR$/subprojects/php/www/hello.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dbsetup.sql" afterPath="$PROJECT_DIR$/dbsetup.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/subprojects/php/libs/dbconnection.php" afterPath="$PROJECT_DIR$/subprojects/php/libs/dbconnection.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/subprojects/php/libs/utils.php" afterPath="$PROJECT_DIR$/subprojects/php/libs/utils.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/subprojects/php/models/user.php" afterPath="$PROJECT_DIR$/subprojects/php/models/user.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/subprojects/php/settings.php" afterPath="$PROJECT_DIR$/subprojects/php/settings.php" />
+    </list>
     <ignored path="boredom.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,19 +29,37 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="hello.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/subprojects/php/hello.php">
+      <file leaf-file-name="user.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/subprojects/php/models/user.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="39" selection-end="39" vertical-scroll-proportion="-1.826087">
+            <state line="55" column="21" selection-start="1474" selection-end="1474" vertical-scroll-proportion="0.6004077">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/subprojects/php/models/user.php">
+      <file leaf-file-name="game.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/subprojects/php/models/game.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="0" selection-start="1607" selection-end="1607" vertical-scroll-proportion="0.68394816">
+            <state line="70" column="0" selection-start="1850" selection-end="1850" vertical-scroll-proportion="-41.391304">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="apicontroller.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/subprojects/php/api/apicontroller.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="49" column="68" selection-start="1721" selection-end="1721" vertical-scroll-proportion="-29.826086">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/subprojects/php/www/api.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="27" selection-start="801" selection-end="801" vertical-scroll-proportion="-16.434782">
               <folding />
             </state>
           </provider>
@@ -41,7 +68,34 @@
       <file leaf-file-name="utils.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/subprojects/php/libs/utils.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="108" selection-end="108" vertical-scroll-proportion="-3.652174">
+            <state line="7" column="26" selection-start="167" selection-end="167" vertical-scroll-proportion="-4.2608695">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="loginapicontroller.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/subprojects/php/api/loginapicontroller.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="30" selection-start="511" selection-end="511" vertical-scroll-proportion="-10.956522">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="logoutapicontroller.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/subprojects/php/api/logoutapicontroller.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="0" selection-start="328" selection-end="328" vertical-scroll-proportion="-9.130435">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="registerapicontroller.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/subprojects/php/api/registerapicontroller.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="0" selection-start="817" selection-end="817" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -50,7 +104,7 @@
       <file leaf-file-name="settings.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/subprojects/php/settings.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="42" selection-end="42" vertical-scroll-proportion="-1.2173913">
+            <state line="6" column="0" selection-start="244" selection-end="244" vertical-scroll-proportion="-3.652174">
               <folding />
             </state>
           </provider>
@@ -59,54 +113,7 @@
       <file leaf-file-name="dbconnection.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/subprojects/php/libs/dbconnection.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="0" selection-start="671" selection-end="671" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.soy" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/subprojects/js/src/soy/index.soy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="78" selection-end="78" vertical-scroll-proportion="-4.2608695">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/subprojects/node/src/routes/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.dust" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/subprojects/node/src/views/index.dust">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="0" selection-start="283" selection-end="283" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routehandlers.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/subprojects/node/src/routehandlers.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/subprojects/node/src/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="3" selection-start="729" selection-end="729" vertical-scroll-proportion="0.0">
+            <state line="47" column="20" selection-start="1198" selection-end="1198" vertical-scroll-proportion="-28.608696">
               <folding />
             </state>
           </provider>
@@ -125,17 +132,21 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/subprojects/php/hello.php" />
-        <option value="$PROJECT_DIR$/subprojects/js/src/controllers/indexctrl.js" />
-        <option value="$PROJECT_DIR$/subprojects/js/src/modules/index_init.js" />
-        <option value="$PROJECT_DIR$/subprojects/js/src/soy/index.soy" />
-        <option value="$PROJECT_DIR$/subprojects/node/src/routes/index.js" />
-        <option value="$PROJECT_DIR$/subprojects/node/src/views/index.dust" />
         <option value="$PROJECT_DIR$/subprojects/node/src/routehandlers.js" />
         <option value="$PROJECT_DIR$/subprojects/node/src/app.js" />
-        <option value="$PROJECT_DIR$/subprojects/php/libs/dbconnection.php" />
+        <option value="$PROJECT_DIR$/subprojects/php/www/hello.php" />
+        <option value="$PROJECT_DIR$/subprojects/php/api/api_login.php" />
+        <option value="$PROJECT_DIR$/subprojects/php/libs/apiexception.php" />
         <option value="$PROJECT_DIR$/subprojects/php/settings.php" />
+        <option value="$PROJECT_DIR$/subprojects/php/api/loginapicontroller.php" />
+        <option value="$PROJECT_DIR$/subprojects/php/api/apicontroller.php" />
+        <option value="$PROJECT_DIR$/subprojects/php/api/logoutapicontroller.php" />
+        <option value="$PROJECT_DIR$/subprojects/php/api/gameslistcontroller.php" />
+        <option value="$PROJECT_DIR$/subprojects/php/api/registerapicontroller.php" />
+        <option value="$PROJECT_DIR$/subprojects/php/www/api.php" />
         <option value="$PROJECT_DIR$/subprojects/php/libs/utils.php" />
+        <option value="$PROJECT_DIR$/subprojects/php/libs/dbconnection.php" />
+        <option value="$PROJECT_DIR$/subprojects/php/models/game.php" />
         <option value="$PROJECT_DIR$/subprojects/php/models/user.php" />
       </list>
     </option>
@@ -172,7 +183,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -227,6 +237,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boredom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boredom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="subprojects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="php" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -250,6 +282,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boredom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boredom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="subprojects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="php" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -527,14 +581,24 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FullScreen" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/subprojects/php/www" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
       <method />
     </configuration>
     <list size="0" />
@@ -542,6 +606,7 @@
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+      <changelist id="606ee428-4f1c-4f86-8169-1312ced97a17" name="Default" comment="" />
       <created>1362443822177</created>
       <updated>1362443822177</updated>
     </task>
@@ -551,23 +616,23 @@
     <frame x="0" y="22" width="1920" height="1174" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2497332" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2524013" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -623,48 +688,16 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/subprojects/js/js.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="0" selection-start="1623" selection-end="1623" vertical-scroll-proportion="0.80506825">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/subprojects/js/src/controllers/indexctrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="44" selection-start="44" selection-end="44" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/subprojects/js/src/modules/index_init.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="641" selection-end="641" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/subprojects/js/src/soy/index.soy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="78" selection-end="78" vertical-scroll-proportion="-4.2608695">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/subprojects/node/src/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/subprojects/node/src/views/index.dust">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="283" selection-end="283" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="10" column="0" selection-start="283" selection-end="283" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/subprojects/node/src/routehandlers.js">
@@ -681,37 +714,86 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/subprojects/php/libs/dbconnection.php">
+    <entry file="file://$PROJECT_DIR$/subprojects/php/www/hello.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="671" selection-end="671" vertical-scroll-proportion="0.0">
+        <state line="1" column="27" selection-start="33" selection-end="33" vertical-scroll-proportion="0.013958125">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/subprojects/php/hello.php">
+    <entry file="file://$PROJECT_DIR$/subprojects/php/libs/apiexception.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="39" selection-end="39" vertical-scroll-proportion="-1.826087">
+        <state line="8" column="8" selection-start="142" selection-end="142" vertical-scroll-proportion="0.11416922">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/subprojects/php/settings.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="42" selection-end="42" vertical-scroll-proportion="-1.2173913">
+        <state line="6" column="0" selection-start="244" selection-end="244" vertical-scroll-proportion="-3.652174">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/subprojects/php/api/logoutapicontroller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="328" selection-end="328" vertical-scroll-proportion="-9.130435">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/subprojects/php/api/loginapicontroller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="30" selection-start="511" selection-end="511" vertical-scroll-proportion="-10.956522">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/subprojects/php/api/registerapicontroller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="817" selection-end="817" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/subprojects/php/www/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="27" selection-start="801" selection-end="801" vertical-scroll-proportion="-16.434782">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/subprojects/php/libs/utils.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="108" selection-end="108" vertical-scroll-proportion="-3.652174">
+        <state line="7" column="26" selection-start="167" selection-end="167" vertical-scroll-proportion="-4.2608695">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/subprojects/php/api/apicontroller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="68" selection-start="1721" selection-end="1721" vertical-scroll-proportion="-29.826086">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/subprojects/php/libs/dbconnection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="20" selection-start="1198" selection-end="1198" vertical-scroll-proportion="-28.608696">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/subprojects/php/models/game.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="0" selection-start="1850" selection-end="1850" vertical-scroll-proportion="-41.391304">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/subprojects/php/models/user.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="0" selection-start="1607" selection-end="1607" vertical-scroll-proportion="0.68394816">
+        <state line="55" column="21" selection-start="1474" selection-end="1474" vertical-scroll-proportion="0.6004077">
           <folding />
         </state>
       </provider>

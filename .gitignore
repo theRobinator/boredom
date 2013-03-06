@@ -2,6 +2,8 @@
 #*
 build
 .gradle
+.idea
+.project
 subprojects/css/build
 subprojects/js/build
 subprojects/node/build
