@@ -4,11 +4,23 @@ require_once '../settings.php';
 require_once API_DIR . 'loginapicontroller.php';
 require_once API_DIR . 'logoutapicontroller.php';
 require_once API_DIR . 'registerapicontroller.php';
+require_once API_DIR . 'gamecreateapicontroller.php';
+require_once API_DIR . 'gameapproveapicontroller.php';
+require_once API_DIR . 'gameslistapicontroller.php';
+require_once API_DIR . 'unapprovedgameslistapicontroller.php';
+require_once API_DIR . 'newsfeedlistapicontroller.php';
+require_once API_DIR . 'userlistapicontroller.php';
 
 $ROUTE_MAPPING = array(
     '/login' => 'LoginAPIController',
     '/logout' => 'LogoutAPIController',
-    '/register' => 'RegisterAPIController'
+    '/register' => 'RegisterAPIController',
+    '/user/list' => 'UserListAPIController',
+    '/games/create' => 'GameCreateAPIController',
+    '/games/approve' => 'GameApproveAPIController',
+    '/games/list' => 'GamesListAPIController',
+    '/games/unapproved' => 'UnapprovedGamesListAPIController',
+    '/games/recent' => 'NewsfeedListAPIController'
 );
 
 // Get the name of the controller

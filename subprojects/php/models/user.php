@@ -10,12 +10,14 @@ class User {
     private $losses;
     private $gamesPlayed;
 
+    private static $registry = array();
+
     public function __construct($id, $name, $wins, $losses, $gamesPlayed) {
-        $this->id = $id;
+        $this->id = intval($id);
         $this->name = $name;
-        $this->wins = $wins;
-        $this->losses = $losses;
-        $this->gamesPlayed = $gamesPlayed;
+        $this->wins = intval($wins);
+        $this->losses = intval($losses);
+        $this->gamesPlayed = intval($gamesPlayed);
     }
 
     public function getGamesPlayed() {
@@ -53,16 +55,17 @@ class User {
         $hashedPass = Utils::HashPassword($password);
         $row = DBConnection::getInstance()->firstResult("SELECT * FROM users WHERE name='$name' AND password='$hashedPass' LIMIT 1;");
         if ($row) {
-            return new User($row['id'], $row['name'], $row['wins'], $row['losses'], $row['gamesPlayed']);
+            return new User($row['id'], $row['name'], $row['wins'], $row['losses'], $row['games_played']);
         } else {
             return null;
         }
     }
 
     public static function LoadByID($id) {
-        $row = DBConnection::getInstance()->firstResult("SELECT * FROM users WHERE id=$id LIMIT 1;");
-        if ($row) {
-            return new User($row['id'], $row['name'], $row['wins'], $row['losses'], $row['gamesPlayed']);
+        if (isset(User::$registry[$id])) {
+            return User::$registry[$id];
+        } elseif (($row = DBConnection::getInstance()->firstResult("SELECT * FROM users WHERE id=$id LIMIT 1;")) && $row['id']) {
+            return new User($row['id'], $row['name'], $row['wins'], $row['losses'], $row['games_played']);
         } else {
             return null;
         }

@@ -22,8 +22,8 @@ class APIController {
     public function handle() {
         // If we need to have auth, grab the user's session and set $this->user
         if ($this->needsAuth) {
-            $user = Utils::LoadSession();
-            if (!$user) {
+            $this->user = Utils::LoadSession();
+            if (!$this->user) {
                 throw new APIException(APIException::AUTH_REQUIRED, 'Authentication required.');
             }
         }

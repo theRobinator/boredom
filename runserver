@@ -1,0 +1,36 @@
+#! /usr/bin/env bash
+
+# Check for usage args
+if [ "$1" == "-h" -o "$1" == "--help" ]; then
+    PROG_NAME=$(basename $0)
+    echo "$PROG_NAME: Run the node server for the current project."
+    echo "If arguments are passed, they will be used to build the server before running it."
+    echo "Usage: $(basename $0) [build_args]"
+    exit 0
+fi
+
+# Go up to the root of the checkout, where gradlew is
+while [ ! -e gradlew ] && [ "$PWD" != "/" ]; do
+    cd ..
+done
+
+if [ ! -e gradlew ]; then
+    echo "You have to run this command from somewhere inside a locale checkout."
+    exit 1
+fi
+
+# If any arguments were passed, give them to gradle to build
+if [ ! "$*" == "" ]; then
+    ./gradlew $@ || exit 1
+fi
+
+# The server lives in the build directory, so we can't do anything if that doesn't exist
+if [ ! -e build ]; then
+    echo 'You must build the server using arguments (e.g. debugNode) before you run it.'
+    exit 1
+fi
+
+# Make sure to set node's include path to the current directory before running
+cd build
+export NODE_PATH="$PWD"
+node app.js

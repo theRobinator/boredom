@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+<head>
+    <title>Ping Pong!</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div ng-controller="LoginCtrl" ng-include src="'login_form.soy'" id="index"></div>
+    <script src="js/angular.min.js"></script>
+    <script src="js/en_US/module_login.js"></script>
+</body>
+</html>

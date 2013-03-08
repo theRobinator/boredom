@@ -29,7 +29,7 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-//app.get('/', routes.index);
+app.get('/', routes.login);
 
 // SSL Config
 var privateKey = fs.readFileSync('privatekey.pem');

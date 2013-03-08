@@ -2,14 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="606ee428-4f1c-4f86-8169-1312ced97a17" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/subprojects/php/hello.php" afterPath="$PROJECT_DIR$/subprojects/php/www/hello.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/subprojects/js/config/plovr-login.groovy" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/newbuild" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/subprojects/js/config/plovr-index.groovy" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/subprojects/js/src/controllers/indexctrl.js" afterPath="$PROJECT_DIR$/subprojects/js/src/controllers/loginctrl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/subprojects/js/src/modules/index_init.js" afterPath="$PROJECT_DIR$/subprojects/js/src/modules/login_init.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/subprojects/js/src/soy/index.soy" afterPath="$PROJECT_DIR$/subprojects/js/src/soy/login.soy" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/subprojects/node/src/routes/index.js" afterPath="$PROJECT_DIR$/subprojects/node/src/routes/login.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/subprojects/node/src/views/index.dust" afterPath="$PROJECT_DIR$/subprojects/node/src/views/login.dust" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/boredom.iml" afterPath="$PROJECT_DIR$/.idea/boredom.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dbsetup.sql" afterPath="$PROJECT_DIR$/dbsetup.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/subprojects/php/libs/dbconnection.php" afterPath="$PROJECT_DIR$/subprojects/php/libs/dbconnection.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/subprojects/php/libs/utils.php" afterPath="$PROJECT_DIR$/subprojects/php/libs/utils.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle.properties" afterPath="$PROJECT_DIR$/gradle.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/subprojects/js/config/plovr-common.groovy" afterPath="$PROJECT_DIR$/subprojects/js/config/plovr-common.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/subprojects/node/src/app.js" afterPath="$PROJECT_DIR$/subprojects/node/src/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/subprojects/node/src/routehandlers.js" afterPath="$PROJECT_DIR$/subprojects/node/src/routehandlers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/subprojects/php/api/apicontroller.php" afterPath="$PROJECT_DIR$/subprojects/php/api/apicontroller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/subprojects/php/api/logoutapicontroller.php" afterPath="$PROJECT_DIR$/subprojects/php/api/logoutapicontroller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/subprojects/php/libs/apiexception.php" afterPath="$PROJECT_DIR$/subprojects/php/libs/apiexception.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/subprojects/php/models/game.php" afterPath="$PROJECT_DIR$/subprojects/php/models/game.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/subprojects/php/models/user.php" afterPath="$PROJECT_DIR$/subprojects/php/models/user.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/subprojects/php/settings.php" afterPath="$PROJECT_DIR$/subprojects/php/settings.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/subprojects/php/www/api.php" afterPath="$PROJECT_DIR$/subprojects/php/www/api.php" />
     </list>
     <ignored path="boredom.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,91 +44,91 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="user.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/subprojects/php/models/user.php">
+      <file leaf-file-name="apirequest.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/subprojects/js/libs/api/apirequest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="21" selection-start="1474" selection-end="1474" vertical-scroll-proportion="0.6004077">
+            <state line="168" column="0" selection-start="3565" selection-end="3609" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/subprojects/php/models/game.php">
+      <file leaf-file-name="apiexceptionparser.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/subprojects/js/libs/api/parsers/apiexceptionparser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="0" selection-start="1850" selection-end="1850" vertical-scroll-proportion="-41.391304">
+            <state line="14" column="0" selection-start="384" selection-end="384" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="apicontroller.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/subprojects/php/api/apicontroller.php">
+      <file leaf-file-name="login_init.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/subprojects/js/src/modules/login_init.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="68" selection-start="1721" selection-end="1721" vertical-scroll-proportion="-29.826086">
+            <state line="13" column="64" selection-start="503" selection-end="503" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/subprojects/php/www/api.php">
+      <file leaf-file-name="loginctrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/subprojects/js/src/controllers/loginctrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="27" selection-start="801" selection-end="801" vertical-scroll-proportion="-16.434782">
+            <state line="46" column="14" selection-start="1588" selection-end="1588" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="utils.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/subprojects/php/libs/utils.php">
+      <file leaf-file-name="login.soy" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/subprojects/js/src/soy/login.soy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="26" selection-start="167" selection-end="167" vertical-scroll-proportion="-4.2608695">
+            <state line="6" column="57" selection-start="121" selection-end="121" vertical-scroll-proportion="0.08562691">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loginapicontroller.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/subprojects/php/api/loginapicontroller.php">
+      <file leaf-file-name="singleuserparser.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/subprojects/js/libs/api/parsers/singleuserparser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="30" selection-start="511" selection-end="511" vertical-scroll-proportion="-10.956522">
+            <state line="18" column="0" selection-start="618" selection-end="618" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="logoutapicontroller.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/subprojects/php/api/logoutapicontroller.php">
+      <file leaf-file-name="apirequestbuilder.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/subprojects/js/libs/api/apirequestbuilder.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="328" selection-end="328" vertical-scroll-proportion="-9.130435">
+            <state line="15" column="10" selection-start="359" selection-end="359" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registerapicontroller.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/subprojects/php/api/registerapicontroller.php">
+      <file leaf-file-name="apiservice.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/subprojects/js/src/services/apiservice.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="0" selection-start="817" selection-end="817" vertical-scroll-proportion="0.0">
+            <state line="30" column="64" selection-start="623" selection-end="623" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/subprojects/php/settings.php">
+      <file leaf-file-name="constants.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/subprojects/js/libs/constants.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="244" selection-end="244" vertical-scroll-proportion="-3.652174">
+            <state line="8" column="0" selection-start="181" selection-end="181" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dbconnection.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/subprojects/php/libs/dbconnection.php">
+      <file leaf-file-name="plovr-common.groovy" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/subprojects/js/config/plovr-common.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="20" selection-start="1198" selection-end="1198" vertical-scroll-proportion="-28.608696">
+            <state line="6" column="36" selection-start="152" selection-end="152" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -132,22 +147,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/subprojects/node/src/routehandlers.js" />
-        <option value="$PROJECT_DIR$/subprojects/node/src/app.js" />
-        <option value="$PROJECT_DIR$/subprojects/php/www/hello.php" />
-        <option value="$PROJECT_DIR$/subprojects/php/api/api_login.php" />
-        <option value="$PROJECT_DIR$/subprojects/php/libs/apiexception.php" />
-        <option value="$PROJECT_DIR$/subprojects/php/settings.php" />
-        <option value="$PROJECT_DIR$/subprojects/php/api/loginapicontroller.php" />
-        <option value="$PROJECT_DIR$/subprojects/php/api/apicontroller.php" />
-        <option value="$PROJECT_DIR$/subprojects/php/api/logoutapicontroller.php" />
-        <option value="$PROJECT_DIR$/subprojects/php/api/gameslistcontroller.php" />
-        <option value="$PROJECT_DIR$/subprojects/php/api/registerapicontroller.php" />
-        <option value="$PROJECT_DIR$/subprojects/php/www/api.php" />
-        <option value="$PROJECT_DIR$/subprojects/php/libs/utils.php" />
-        <option value="$PROJECT_DIR$/subprojects/php/libs/dbconnection.php" />
-        <option value="$PROJECT_DIR$/subprojects/php/models/game.php" />
-        <option value="$PROJECT_DIR$/subprojects/php/models/user.php" />
+        <option value="$PROJECT_DIR$/subprojects/js/libs/api/reader.js" />
+        <option value="$PROJECT_DIR$/subprojects/js/libs/api/requestmethod.js" />
+        <option value="$PROJECT_DIR$/subprojects/js/config/plovr-index.groovy" />
+        <option value="$PROJECT_DIR$/gradle.properties" />
+        <option value="$PROJECT_DIR$/subprojects/js/libs/api/apienums.js" />
+        <option value="$PROJECT_DIR$/subprojects/js/libs/api/parsers/singleuserparser.js" />
+        <option value="$PROJECT_DIR$/subprojects/js/libs/models/user.js" />
+        <option value="$PROJECT_DIR$/subprojects/js/src/services/apiservice.js" />
+        <option value="$PROJECT_DIR$/subprojects/js/config/plovr-common.groovy" />
+        <option value="$PROJECT_DIR$/subprojects/js/libs/api/apirequest.js" />
+        <option value="$PROJECT_DIR$/subprojects/js/libs/api/apirequestbuilder.js" />
+        <option value="$PROJECT_DIR$/subprojects/js/src/modules/login_init.js" />
+        <option value="$PROJECT_DIR$/subprojects/js/libs/constants.js" />
+        <option value="$PROJECT_DIR$/subprojects/js/libs/api/parsers/apiexceptionparser.js" />
+        <option value="$PROJECT_DIR$/subprojects/js/src/controllers/loginctrl.js" />
+        <option value="$PROJECT_DIR$/subprojects/js/src/soy/login.soy" />
       </list>
     </option>
   </component>
@@ -183,6 +198,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -413,6 +429,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="node" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boredom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boredom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="subprojects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -462,6 +504,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -535,11 +581,133 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boredom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boredom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="subprojects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boredom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boredom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="subprojects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="libs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="zoosk" />
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boredom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boredom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="subprojects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boredom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boredom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="subprojects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="parsers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boredom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boredom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="subprojects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -581,15 +749,20 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.lastSelected" value="web-ide.project.structure" />
     <property name="FullScreen" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/subprojects/js/libs/api" />
       <recent name="$PROJECT_DIR$/subprojects/php/www" />
     </key>
   </component>
@@ -604,6 +777,24 @@
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="DETECT_NESTED_COPIES" value="true" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="606ee428-4f1c-4f86-8169-1312ced97a17" name="Default" comment="" />
@@ -618,10 +809,9 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2524013" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26040554" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -630,6 +820,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -688,112 +879,114 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/subprojects/node/src/routes/index.js">
+    <entry file="file://$PROJECT_DIR$/subprojects/js/config/plovr-login.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="5" column="49" selection-start="77" selection-end="77" vertical-scroll-proportion="0.06822612">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/subprojects/node/src/views/index.dust">
+    <entry file="file://$PROJECT_DIR$/gradle.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="283" selection-end="283" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/subprojects/node/src/routehandlers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="3" column="18" selection-start="193" selection-end="193" vertical-scroll-proportion="0.040935673">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/subprojects/node/src/app.js">
+    <entry file="file://$PROJECT_DIR$/subprojects/js/libs/api/apienums.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="3" selection-start="729" selection-end="729" vertical-scroll-proportion="0.0">
+        <state line="28" column="0" selection-start="601" selection-end="601" vertical-scroll-proportion="0.38206628">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/subprojects/php/www/hello.php">
+    <entry file="file://$PROJECT_DIR$/subprojects/js/libs/models/user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="27" selection-start="33" selection-end="33" vertical-scroll-proportion="0.013958125">
+        <state line="8" column="19" selection-start="206" selection-end="206" vertical-scroll-proportion="0.109161794">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/subprojects/php/libs/apiexception.php">
+    <entry file="file://$PROJECT_DIR$/subprojects/js/closure/closure/goog/base.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="8" selection-start="142" selection-end="142" vertical-scroll-proportion="0.11416922">
+        <state line="55" column="0" selection-start="1931" selection-end="1931" vertical-scroll-proportion="0.33333334">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/subprojects/php/settings.php">
+    <entry file="file://$PROJECT_DIR$/subprojects/js/build/config/en_US/plovr-login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="244" selection-end="244" vertical-scroll-proportion="-3.652174">
+        <state line="42" column="1" selection-start="1515" selection-end="1515" vertical-scroll-proportion="0.57309943">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/subprojects/php/api/logoutapicontroller.php">
+    <entry file="file://$PROJECT_DIR$/subprojects/js/libs/api/apirequestbuilder.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="328" selection-end="328" vertical-scroll-proportion="-9.130435">
+        <state line="15" column="10" selection-start="359" selection-end="359" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/subprojects/php/api/loginapicontroller.php">
+    <entry file="file://$PROJECT_DIR$/subprojects/js/src/services/apiservice.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="30" selection-start="511" selection-end="511" vertical-scroll-proportion="-10.956522">
+        <state line="30" column="64" selection-start="623" selection-end="623" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/subprojects/php/api/registerapicontroller.php">
+    <entry file="file://$PROJECT_DIR$/subprojects/js/config/plovr-common.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="817" selection-end="817" vertical-scroll-proportion="0.0">
+        <state line="6" column="36" selection-start="152" selection-end="152" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/subprojects/php/www/api.php">
+    <entry file="file://$PROJECT_DIR$/subprojects/js/libs/constants.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="27" selection-start="801" selection-end="801" vertical-scroll-proportion="-16.434782">
+        <state line="8" column="0" selection-start="181" selection-end="181" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/subprojects/php/libs/utils.php">
+    <entry file="file://$PROJECT_DIR$/subprojects/js/libs/api/parsers/singleuserparser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="26" selection-start="167" selection-end="167" vertical-scroll-proportion="-4.2608695">
+        <state line="18" column="0" selection-start="618" selection-end="618" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/subprojects/php/api/apicontroller.php">
+    <entry file="file://$PROJECT_DIR$/subprojects/js/libs/api/parsers/apiexceptionparser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="68" selection-start="1721" selection-end="1721" vertical-scroll-proportion="-29.826086">
+        <state line="14" column="0" selection-start="384" selection-end="384" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/subprojects/php/libs/dbconnection.php">
+    <entry file="file://$PROJECT_DIR$/subprojects/js/libs/api/apirequest.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="20" selection-start="1198" selection-end="1198" vertical-scroll-proportion="-28.608696">
+        <state line="168" column="0" selection-start="3565" selection-end="3609" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/subprojects/php/models/game.php">
+    <entry file="file://$PROJECT_DIR$/subprojects/js/src/controllers/loginctrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="0" selection-start="1850" selection-end="1850" vertical-scroll-proportion="-41.391304">
+        <state line="46" column="14" selection-start="1588" selection-end="1588" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/subprojects/php/models/user.php">
+    <entry file="file://$PROJECT_DIR$/subprojects/js/src/modules/login_init.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="21" selection-start="1474" selection-end="1474" vertical-scroll-proportion="0.6004077">
+        <state line="13" column="64" selection-start="503" selection-end="503" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/subprojects/js/src/soy/login.soy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="57" selection-start="121" selection-end="121" vertical-scroll-proportion="0.08562691">
           <folding />
         </state>
       </provider>

@@ -7,7 +7,8 @@ class APIException extends Exception {
 
     const
         AUTH_REQUIRED = 'auth_required',
-        INVALID_PARAMS = 'invalid_params';
+        INVALID_PARAMS = 'invalid_params',
+        FAILURE = 'failure';
 
     public function __construct($code, $message) {
         parent::__construct($message);

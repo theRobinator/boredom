@@ -5,8 +5,7 @@ level = 'VERBOSE'
 
 define['goog.DEBUG'] = false
 define['goog.LOCALE'] = configLocale
-// define['zoosk.LOCALE'] = locale
-// define['zoosk.REVISION'] = revision
+define['robin.Constants.API_URL'] = '/~robink/bored/api'
 
 this['pretty-print'] = false
 this['treat-warnings-as-errors'] = true

@@ -7,7 +7,7 @@ require_once LIBS_DIR . 'utils.php';
 
 class LogoutAPIController extends APIController {
     public function getResponseData($params) {
-        Utils::DeleteSession();
+        Utils::DeleteSession($this->user);
         return array(
             'message' => 'Goodbye.'
         );
