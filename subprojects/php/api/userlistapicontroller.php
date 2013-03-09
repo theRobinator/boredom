@@ -14,7 +14,7 @@ class UserListAPIController extends APIController {
             $result[] = $user->toArray();
         }
         return array(
-            'games_list' => $result
+            'user_list' => $result
         );
     }
 }

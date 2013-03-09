@@ -25,10 +25,46 @@ robin.services.APIService.prototype.q_;
 robin.services.APIService.prototype.http_;
 
 /**
- * @return {!robin.api.APIRequestBuilder}
+ * @param {!Object} options Options for the request, with the following possible values:
+ *      endpoint: The API endpoint to send to
+ *      method: The method to use. Defaults to GET.
+ *      getParams: GET parameters. Optional.
+ *      postParams: POST parameters. Optional.
+ *      parser: The parser to use. Optional.
+ * @return {angular.$q.Promise}
  */
-robin.services.APIService.prototype.getRequestBuilder = function() {
-    return new robin.api.APIRequestBuilder(this.http_, this.q_);
+robin.services.APIService.prototype.sendRequest = function(options) {
+    /** @type {!robin.api.APIRequestBuilder} */
+    var builder = new robin.api.APIRequestBuilder(this.http_, this.q_);
+
+    // Set default value
+    options['method'] || (options['method'] = robin.api.RequestMethod.GET);
+
+    builder.setPath(options['endpoint'])
+        .setMethod(options['method'])
+        .setParser(options['parser']);
+
+    if (options['getParams']) {
+        builder.setGetParams(options['getParams']);
+    }
+    if (options['postParams']) {
+        builder.setPostParams(options['postParams']);
+    }
+
+    var deferred = this.q_.defer();
+
+    builder.send()
+        .success(function(response) {
+            if (!response || response instanceof Error || !response.isSuccess()) {
+                deferred.reject(response);
+            }
+            deferred.resolve(response);
+        })
+        .error(function(error) {
+            deferred.reject(error);
+        })
+
+    return deferred.promise;
 };
 
 /**

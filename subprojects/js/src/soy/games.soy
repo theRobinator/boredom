@@ -1,0 +1,40 @@
+{namespace robin.soy.Games}
+
+
+/**
+ */
+{template .unapprovedSection}
+{literal}
+<div ng-controller="UnapprovedCtrl" ng-show="games.length">
+    <h1>Unapproved Games</h1>
+    <div ng-repeat="game in games" >
+        <game game="game"></game>
+        <button ng-click="approve(game.id)">Approve</button> <button ng-click="deny(game.id)">Approve</button>
+    </div>
+</div>
+{/literal}
+{/template}
+
+
+/**
+ */
+{template .list}
+{literal}
+<div ng-controller="GameListCtrl">
+    <h1>Recent Games</h1>
+    <game ng-repeat="game in games" game="game"></game>
+</div>
+{/literal}
+{/template}
+
+
+/**
+ */
+{template .game}
+{literal}
+<div style="background-color:grey; padding:10px;">
+    {{date}}<br />
+    <b>{{winner}}</b> {{verb}} <b>{{loser}}</b>, {{winnerScore}} to {{loserScore}}.
+</div>
+{/literal}
+{/template}

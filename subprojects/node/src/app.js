@@ -30,6 +30,7 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.login);
+app.get('/home', routes.home);
 
 // SSL Config
 var privateKey = fs.readFileSync('privatekey.pem');

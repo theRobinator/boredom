@@ -109,6 +109,7 @@ robin.api.APIRequest.prototype.getPostParams = function() {
 };
 
 /**
+ * Send the API request using angular's $http.
  * @return {!angular.$http.HttpPromise}
  */
 robin.api.APIRequest.prototype.send = function() {
@@ -145,18 +146,17 @@ robin.api.APIRequest.prototype.buildUrl_ = function() {
 };
 
 /**
- * @return {robin.api.APIResponse|angular.$q.Promise}
+ * @return {robin.api.APIResponse}
  * @private
  */
 robin.api.APIRequest.prototype.requestSuccess_ = function(data) {
     /** @type {robin.api.APIResponse|angular.$q.Promise} */
-    var response;
+    var response = null;
 
     try {
         response = this.parseResponse(new robin.api.Reader(/** @type {Object} */ (angular.fromJson(data))));
     } catch (e) {
         this.logger_.warning('Error processing api response', e);
-        response = this.q_.reject(e);
     }
 
     return response;

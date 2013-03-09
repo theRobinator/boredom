@@ -24,5 +24,8 @@ robin.api.RequestMethod = {
 
 /** @enum {string} */
 robin.api.ResponseType = {
-    USER: 'user'
+    USER: 'user',
+    USER_LIST: 'user_list',
+    GAME: 'game',
+    GAME_LIST: 'game_list'
 };

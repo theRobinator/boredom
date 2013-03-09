@@ -1,0 +1,16 @@
+{namespace robin.soy.Menu}
+
+/**
+ */
+{template .menu}
+{literal}
+<div ng-controller="MenuCtrl">
+    <a href="/home">Home</a><br />
+    <a href="/addgame">File a new game</a><br />
+    <span ng-click="toggleUserList()">User List</span>
+    <div ng-show="showUsers" style="margin-left: 15px;">
+        <div ng-repeat="user in users"><a href="/users/{{user}}">{{user}}</a></div>
+    </div>
+</div>
+{/literal}
+{/template}

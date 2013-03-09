@@ -1,6 +1,7 @@
 goog.provide('robin.api.Reader');
 
 goog.require('goog.array');
+goog.require('goog.date.DateTime');
 goog.require('goog.object');
 
 /**
@@ -82,6 +83,23 @@ robin.api.Reader.prototype.number = function(propname) {
  */
 robin.api.Reader.prototype.bool = function(propname) {
     return /** @type {boolean} */ (this.object_[propname]);
+};
+
+/**
+ *
+ * @param {string} propname
+ * @return {goog.date.DateTime}
+ */
+robin.api.Reader.prototype.datetime = function(propname) {
+    var strVal = this.object_[propname];
+    if (!strVal) {
+        return null;
+    }
+    var parts = strVal.split('-');
+    if (parts.length != 3) {
+        return null;
+    }
+    return new goog.date.DateTime(parseInt(parts[0], 10), parseInt(parts[1], 10), parseInt(parts[2], 10));
 };
 
 /**
