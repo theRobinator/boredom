@@ -7,10 +7,11 @@
 <div ng-controller="MenuCtrl">
     <a href="/home">Home</a><br />
     <a href="/addgame">File a new game</a><br />
-    <span ng-click="toggleUserList()">User List</span>
+    <a ng-click="toggleUserList()">User List</a>
     <div ng-show="showUsers" style="margin-left: 15px;">
         <div ng-repeat="user in users"><a href="/users/{{user}}">{{user}}</a></div>
     </div>
+    <a ng-click="logout()">Log out</a>
 </div>
 {/literal}
 {/template}

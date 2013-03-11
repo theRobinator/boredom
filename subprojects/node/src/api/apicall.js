@@ -52,8 +52,13 @@ exports.send = function(options, callback, errback) {
     }
     ,
         function(error, response, body) {
-            if (!error && response.statusCode == 200) {
-                var data = JSON.parse(body);
+            var data;
+            try {
+                data = JSON.parse(body);
+            } catch (err) {
+                data = null;
+            }
+            if (data && !error && response.statusCode == 200) {
                 // We don't have these if statements combined because we want to skip the errback if we have a good response but no callback
                 if (data && data['response'] && data['response']['type'] == 'success') {
                     if (callback) {
@@ -66,7 +71,11 @@ exports.send = function(options, callback, errback) {
                     }
                 }
             } else {
-                util.log('Error in API call (HTTP request failed): ' + error.toString());
+                if (error) {
+                    util.log('Error in API call (HTTP request failed): ' + error.toString());
+                } else {
+                    util.log('Data returned from an API call was unparsable!' + body);
+                }
                 if (errback) {
                     errback(null);
                 }

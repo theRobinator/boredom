@@ -172,7 +172,7 @@ robin.api.APIRequest.prototype.parseResponse = function(reader) {
 
     robin.api.APIExceptionParser.parseResponseFromJson(reader, response);
 
-    if (response.isSuccess()) {
+    if (response.isSuccess() && this.parser_) {
         reader.push('response').push('data');
         this.parser_(reader, response);
         reader.pop(2);

@@ -23,12 +23,12 @@ var home = angular.module('home', [])
 
 // The menu
 var menuDeferred;
-home.controller('MenuCtrl', ['$scope', 'userList', robin.controllers.MenuCtrl])
+home.controller('MenuCtrl', ['$scope', 'apiService', 'userList', robin.controllers.MenuCtrl])
     .factory('userList', ['$q', function($q) {
         menuDeferred = $q.defer();
         return menuDeferred.promise;
-    }]
-);
+    }])
+    .factory('apiService', robin.services.APIService.factory);
 goog.exportSymbol('robin.bootstrap.initializeMenu', function(userJson) {
     var userList = robin.Utils.parseNodeResponse(userJson, robin.api.UserParser.parseListFromJson);
     var templateOut = [];
