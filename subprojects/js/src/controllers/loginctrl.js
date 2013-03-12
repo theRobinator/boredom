@@ -2,6 +2,7 @@ goog.provide('robin.controllers.LoginCtrl');
 
 goog.require('robin.api.APIEndpoints');
 goog.require('robin.api.UserParser');
+goog.require('robin.Paths');
 
 /**
  * Controller for handling authentication from the login page.
@@ -21,7 +22,7 @@ robin.controllers.LoginCtrl = function($scope, apiService) {
             'parser': robin.api.UserParser.parseUserFromJson
         })
         .then(function(response) {
-            window.location = '/home';
+            window.location = robin.Paths.HOME;
         },
         function(error) {
             if (error) {
@@ -43,7 +44,7 @@ robin.controllers.LoginCtrl = function($scope, apiService) {
             'parser': robin.api.UserParser.parseUserFromJson
         })
         .then(function(response) {
-            window.location = '/home';
+            window.location = robin.Paths.HOME;
         },
         function(error) {
             if (error) {

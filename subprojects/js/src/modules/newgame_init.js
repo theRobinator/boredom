@@ -8,29 +8,11 @@ goog.require('robin.Utils');
 
 
 // The module
-var home = angular.module('newgame', [])
+var home = angular.module('newgame', ['menu'])
     .run(['$templateCache', function($templateCache) {
-        $templateCache.put('menu.soy', robin.soy.Menu.menu());
         $templateCache.put('games_newform.soy', robin.soy.Games.newForm());
     }])
     .factory('apiService', robin.services.APIService.factory);
-
-
-// The menu
-var menuDeferred;
-home.controller('MenuCtrl', ['$scope', 'apiService', 'menuList', robin.controllers.MenuCtrl])
-    .factory('menuList', ['$q', function($q) {
-        menuDeferred = $q.defer();
-        return menuDeferred.promise;
-    }]);
-goog.exportSymbol('robin.bootstrap.initializeMenu', function(userJson) {
-    var userList = robin.Utils.parseNodeResponse(userJson, robin.api.UserParser.parseListFromJson);
-    var templateOut = [];
-    for (var i = 0; i < userList.length; ++i) {
-        templateOut.push(userList[i].getName());
-    }
-    robin.Utils.resolveAtRootScope(injector, menuDeferred, templateOut);
-});
 
 
 // The unapproved games section

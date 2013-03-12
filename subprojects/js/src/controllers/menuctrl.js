@@ -2,7 +2,9 @@ goog.provide('robin.controllers.MenuCtrl');
 
 goog.require('robin.api.APIEndpoints');
 goog.require('robin.api.UserParser');
+goog.require('robin.Paths');
 goog.require('robin.services.APIService');
+goog.require('robin.services.ModelService');
 goog.require('robin.soy.Menu');
 goog.require('robin.Utils');
 
@@ -25,28 +27,30 @@ robin.controllers.MenuCtrl = function($scope, apiService, userList) {
             'endpoint': robin.api.APIEndpoints.LOGOUT
         })
         .then(function(response) {
-            window.location ='/';
+            window.location = robin.Paths.LOGIN;
         });
     }
 };
 
 
-// The menu
+// Initialize the menu module so that it can be included as a dependency
 var menuDeferred;
 angular.module('menu', []).controller('MenuCtrl', ['$scope', 'apiService', 'userList', robin.controllers.MenuCtrl])
-    .factory('userList', ['$q', function($q) {
-        menuDeferred = $q.defer();
-        return menuDeferred.promise;
+    .factory('userList', ['modelService', function(modelService) {
+        return modelService.getUserModel().getTemplateArray();
     }])
     .factory('apiService', robin.services.APIService.factory)
+    .factory('modelService', function() {
+        return new robin.services.ModelService();
+    })
     .run(['$templateCache', function($templateCache) {
             $templateCache.put('menu.soy', robin.soy.Menu.menu());
     }]);
+
+
 goog.exportSymbol('robin.bootstrap.initializeMenu', function(userJson) {
     var userList = robin.Utils.parseNodeResponse(userJson, robin.api.UserParser.parseListFromJson);
-    var templateOut = [];
-    for (var i = 0; i < userList.length; ++i) {
-        templateOut.push(userList[i].getName());
-    }
-    robin.Utils.resolveAtRootScope(injector, menuDeferred, templateOut);
+    injector.invoke(['modelService', function(modelService) {
+        modelService.setUserModel(userList);
+    }]);
 });

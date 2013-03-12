@@ -1,8 +1,12 @@
 goog.provide('robin.models.User');
 goog.provide('robin.models.UserBuilder');
 
+goog.require('robin.interfaces.ITemplatable');
+
+
 /**
  * @constructor
+ * @implements {robin.interfaces.ITemplatable}
  * @param {robin.models.UserBuilder} builder
  */
 robin.models.User = function(builder) {
@@ -11,6 +15,14 @@ robin.models.User = function(builder) {
     this.wins_ = builder.wins;
     this.losses_ = builder.losses;
     this.gamesPlayed_ = builder.gamesPlayed;
+
+    this.templateArray_ = {
+        'id': this.id_,
+        'name': this.name_,
+        'wins': this.wins_,
+        'losses': this.losses_,
+        'gamesPlayed': this.gamesPlayed_
+    };
 };
 
 
@@ -42,6 +54,11 @@ robin.models.User.prototype.name_;
  * @type {number}
  */
 robin.models.User.prototype.wins_;
+
+/**
+ * @type {!Object}
+ */
+robin.models.User.prototype.templateArray_;
 
 
 /**
@@ -91,6 +108,10 @@ robin.models.User.prototype.getWins = function() {
     return this.wins_;
 };
 
+/** @inheritDoc */
+robin.models.User.prototype.toTemplateArray = function() {
+    return this.templateArray_;
+};
 
 
 /**

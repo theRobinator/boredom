@@ -10,7 +10,7 @@
     <span ng-show="errorMsg">{{errorMsg}}<br /></span>
     <div ng-repeat="game in games" >
         <game game="game"></game>
-        <button ng-click="approve({{$index}})">Approve</button> <button ng-click="deny({{$index}})">Deny</button>
+        <button ng-click="approve(game.id)">Approve</button> <button ng-click="deny(game.id)">Deny</button>
     </div>
 </div>
 {/literal}

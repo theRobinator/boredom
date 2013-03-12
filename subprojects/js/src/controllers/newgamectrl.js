@@ -1,6 +1,7 @@
 goog.provide('robin.controllers.NewGameCtrl');
 
 goog.require('robin.api.APIEndpoints');
+goog.require('robin.Paths');
 
 /**
  * Controller for handling authentication from the login page.
@@ -18,11 +19,11 @@ robin.controllers.NewGameCtrl = function($scope, apiService, userList) {
                 'player2id': $scope['opponent'],
                 'player1score': $scope['player1score'],
                 'player2score': $scope['player2score'],
-                'date': goog.now()
+                'date': Math.floor(goog.now() / 1000)
             }
         })
         .then(function(response) {
-            window.location = '/home';
+            window.location = robin.Paths.HOME;
         },
         function(error) {
             if (error) {

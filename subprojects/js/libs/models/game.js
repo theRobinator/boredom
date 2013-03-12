@@ -1,8 +1,11 @@
 goog.provide('robin.models.GameBuilder');
 goog.provide('robin.models.Game');
 
+goog.require('robin.interfaces.ITemplatable');
+
 /**
  * @constructor
+ * @implements {robin.interfaces.ITemplatable}
  * @param {robin.models.GameBuilder} builder
  */
 robin.models.Game = function(builder) {
@@ -13,6 +16,22 @@ robin.models.Game = function(builder) {
     this.player2Score = builder.player2Score;
     this.validated_ = builder.validated;
     this.date_ = builder.date;
+
+    var date = this.date_;
+    if (date) {
+        date = date.getMonth() + '/' + date.getDate() + '/' + date.getYear();
+    } else {
+        date = '';
+    }
+    this.templateArray_ = {
+        'id': this.id_,
+        'player1': this.player1_.toTemplateArray(),
+        'player2': this.player2_.toTemplateArray(),
+        'player1Score': this.player1Score,
+        'player2Score': this.player2Score,
+        'validated': this.validated_,
+        'date': date
+    };
 };
 
 
@@ -55,6 +74,11 @@ robin.models.Game.prototype.player2_;
  * @private
  */
 robin.models.Game.prototype.validated_;
+
+/**
+ * @type {!Object}
+ */
+robin.models.Game.prototype.templateArray_;
 
 
 /**
@@ -159,6 +183,11 @@ robin.models.Game.prototype.update = function(otherGame) {
         this.validated_ = otherGame.getValidated();
         this.date_ = otherGame.getDate();
     }
+};
+
+/** @inheritDoc */
+robin.models.Game.prototype.toTemplateArray = function() {
+    return this.templateArray_;
 };
 
 

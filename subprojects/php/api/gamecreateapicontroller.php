@@ -15,7 +15,14 @@ class GameCreateAPIController extends APIController {
         if ($params['player2id'] == $this->user->getId()) {
             throw new APIException(APIException::INVALID_PARAMS, "You can't play against yourself in a game.");
         }
-        $date = date('Y-m-d', $params['date']);
+        $intDate = intval($params['date']);
+        if (!$intDate) {
+            throw new APIException(APIException::INVALID_PARAMS, "The date you specified was invalid.");
+        }
+        $date = date('Y-m-d', $intDate);
+        if ($date > date('Y-m-d') || $date < date('Y-m-d', 1356998400)) {  // 1356998400 is Jan 1, 2013
+            throw new APIException(APIException::INVALID_PARAMS, "The date you specified was out of range.");
+        }
         if (Game::CreateGame($this->user->getId(), $params['player2id'], $params['player1score'], $params['player2score'], $date)) {
             return array();
         } else {

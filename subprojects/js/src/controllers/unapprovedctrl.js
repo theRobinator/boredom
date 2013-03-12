@@ -1,33 +1,34 @@
 goog.provide('robin.controllers.UnapprovedCtrl');
 
+goog.require('robin.api.GameParser');
+goog.require('robin.directives.GameDirective');
+goog.require('robin.services.APIService');
+goog.require('robin.services.ModelService');
+goog.require('robin.soy.Games');
+goog.require('robin.Utils');
+
 /**
  * Controller for handling authentication from the login page.
  *
  * @param {angular.Scope} $scope
  * @param {robin.services.APIService} apiService
+ * @param {robin.services.ModelService} modelService
  * @param {Array.<robin.models.Game>|angular.$q.Promise} gameList
  */
-robin.controllers.UnapprovedCtrl = function($scope, apiService, gameList) {
+robin.controllers.UnapprovedCtrl = function($scope, apiService, modelService, gameList) {
     $scope['games'] = gameList;
 
     var removeGame = function(id, approve) {
-        var oldGame;
-        for (var i = 0; i < $scope['games'].length; ++i) {
-            oldGame = $scope['games'][i]
-            if (oldGame.getId() == id) {
-                $scope['games'].splice(i, 1);
+        var newsfeedModel = modelService.getNewsfeedModel();
+        for (var i = 0; i < newsfeedModel.getLength(); ++i) {
+            if (newsfeedModel.getItemAt(i).getId() == id) {
+                newsfeedModel.removeItemAt(i);
                 break;
             }
         }
-        if (approve) {
-            injector.invoke(['$rootScope', function($rootScope) {
-                $rootScope['newsfeed'].unshift(oldGame);
-            }]);
-        }
-    }
+    };
 
-    $scope['approve'] = function(index) {
-        var gameId = $scope['games'][index];
+    $scope['approve'] = function(gameId) {
         apiService.sendRequest({
             'endpoint': robin.api.APIEndpoints.GAME_APPROVE,
             'getParams': {
@@ -41,8 +42,7 @@ robin.controllers.UnapprovedCtrl = function($scope, apiService, gameList) {
         })
     };
 
-    $scope['deny'] = function(index) {
-        var gameId = $scope['games'][index];
+    $scope['deny'] = function(gameId) {
         apiService.sendRequest({
             'endpoint': robin.api.APIEndpoints.GAME_DENY,
             'getParams': {
@@ -56,3 +56,25 @@ robin.controllers.UnapprovedCtrl = function($scope, apiService, gameList) {
         })
     }
 };
+
+
+// Initialize the module
+var unapprovedDeferred;
+angular.module('unapprovedGames', []).controller('UnapprovedCtrl', ['$scope', 'apiService', 'modelService', 'unapprovedList', robin.controllers.UnapprovedCtrl])
+    .factory('unapprovedList', ['$q', function($q) {
+        unapprovedDeferred = $q.defer();
+        return unapprovedDeferred.promise;
+    }])
+    .factory('modelService', function() {
+        return new robin.services.ModelService();
+    })
+    .factory('apiService', robin.services.APIService.factory)
+    .run(['$templateCache', function($templateCache) {
+        $templateCache.put('games_unapproved.soy', robin.soy.Games.unapprovedSection());
+    }]);
+
+
+goog.exportSymbol('robin.bootstrap.initializeUnapprovedGames', function(gameJson) {
+    var gameList = robin.Utils.parseNodeResponse(gameJson, robin.api.GameParser.parseListFromJson);
+    robin.Utils.resolveAtRootScope(injector, unapprovedDeferred, gameList);
+});
