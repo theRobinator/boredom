@@ -23,6 +23,7 @@ exports.Endpoints = {
     GAME_APPROVE: 'games/approve',
     GAMES_LIST: 'games/list',
     GAMES_UNAPPROVED: "games/unapproved",
-    GAMES_RECENT: 'games/recent'
+    GAMES_RECENT: 'games/recent',
+    RANKING_LIST: 'ranking/list'
 };
 

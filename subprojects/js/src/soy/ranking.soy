@@ -1,0 +1,15 @@
+{namespace robin.soy.Ranking}
+
+/**
+ */
+{template .list}
+{literal}
+<div ng-controller="RankingCtrl">
+    <h4>Rankings:</h4>
+    <div>
+        <div ng-repeat="item in rankingList">
+            <span>{{item}}</span></div>
+    </div>
+</div>
+{/literal}
+{/template}

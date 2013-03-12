@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+<head>
+    <title>Ranks!</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div ng-controller="RankingCtrl" ng-include src="'ranking_list.soy'" id="ranking"></div>
+    <script src="js/angular.min.js"></script>
+    <script src="js/en_US/module_ranking.js"></script>
+</body>
+</html>

@@ -10,6 +10,7 @@ require_once API_DIR . 'gameslistapicontroller.php';
 require_once API_DIR . 'unapprovedgameslistapicontroller.php';
 require_once API_DIR . 'newsfeedlistapicontroller.php';
 require_once API_DIR . 'userlistapicontroller.php';
+require_once API_DIR . 'rankinglistapicontroller.php';
 
 $ROUTE_MAPPING = array(
     '/login' => 'LoginAPIController',
@@ -20,7 +21,8 @@ $ROUTE_MAPPING = array(
     '/games/approve' => 'GameApproveAPIController',
     '/games/list' => 'GamesListAPIController',
     '/games/unapproved' => 'UnapprovedGamesListAPIController',
-    '/games/recent' => 'NewsfeedListAPIController'
+    '/games/recent' => 'NewsfeedListAPIController',
+    '/ranking/list' => 'RankingListAPIController'
 );
 
 // Get the name of the controller

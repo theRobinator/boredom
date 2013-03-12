@@ -13,7 +13,8 @@ robin.api.APIEndpoints = {
     GAME_DENY: 'games/deny',
     GAMES_LIST: 'games/list',
     GAMES_UNAPPROVED: "games/unapproved",
-    GAMES_RECENT: 'games/recent'
+    GAMES_RECENT: 'games/recent',
+    RANKING_LIST: 'ranking/list'
 };
 
 /** @enum {string} */
@@ -28,5 +29,6 @@ robin.api.ResponseType = {
     USER: 'user',
     USER_LIST: 'user_list',
     GAME: 'game',
-    GAME_LIST: 'game_list'
+    GAME_LIST: 'game_list',
+    RANKING_LIST: 'ranking_list'
 };

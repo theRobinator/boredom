@@ -32,6 +32,7 @@ app.configure('development', function(){
 app.get('/', routes.login);
 app.get('/home', routes.home);
 app.get('/newgame', routes.newgame);
+app.get('/ranking', routes.ranking);
 
 // SSL Config
 var privateKey = fs.readFileSync('privatekey.pem');
