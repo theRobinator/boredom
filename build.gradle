@@ -25,3 +25,10 @@ project['build.apps'].split(',').each { app ->
         into "${buildDir}/public/js"
     }
 }
+
+task debugAll
+subprojects {
+    afterEvaluate { sub ->
+        sub.tasks.findAll { it.name.startsWith 'debug' }.each { debugAll.dependsOn it }
+    }
+}

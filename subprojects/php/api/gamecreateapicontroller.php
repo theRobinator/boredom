@@ -12,6 +12,9 @@ class GameCreateAPIController extends APIController {
     }
 
     public function getResponseData($params) {
+        if ($params['player2id'] == $this->user->getId()) {
+            throw new APIException(APIException::INVALID_PARAMS, "You can't play against yourself in a game.");
+        }
         $date = date('Y-m-d', $params['date']);
         if (Game::CreateGame($this->user->getId(), $params['player2id'], $params['player1score'], $params['player2score'], $date)) {
             return array();

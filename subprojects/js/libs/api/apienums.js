@@ -10,6 +10,7 @@ robin.api.APIEndpoints = {
     USER_LIST: 'user/list',
     GAME_CREATE: 'games/create',
     GAME_APPROVE: 'games/approve',
+    GAME_DENY: 'games/deny',
     GAMES_LIST: 'games/list',
     GAMES_UNAPPROVED: "games/unapproved",
     GAMES_RECENT: 'games/recent'

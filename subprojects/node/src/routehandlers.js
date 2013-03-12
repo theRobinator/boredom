@@ -3,7 +3,7 @@
  * fields on the object will be named after the file they were found in. For example, adding 'login' to this array
  * causes this file to export a 'login' field that points to the handleRoute function in routes/login.js.
  */
-var routeFiles = ['login', 'home'];
+var routeFiles = ['login', 'home', 'newgame'];
 
 for (var i = 0; i < routeFiles.length; ++i) {
     var routeName = routeFiles[i];

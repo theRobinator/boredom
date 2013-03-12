@@ -6,42 +6,23 @@ goog.require('robin.controllers.MenuCtrl');
 goog.require('robin.controllers.UnapprovedCtrl');
 goog.require('robin.directives.GameDirective');
 goog.require('robin.soy.Games');
-goog.require('robin.soy.Menu');
 goog.require('robin.services.APIService');
 goog.require('robin.Utils');
 
 
 // The module
-var home = angular.module('home', [])
+var home = angular.module('home', ['menu'])
     .run(['$templateCache', function($templateCache) {
-        $templateCache.put('menu.soy', robin.soy.Menu.menu());
         $templateCache.put('games_unapproved.soy', robin.soy.Games.unapprovedSection());
         $templateCache.put('games_list.soy', robin.soy.Games.list());
     }])
-    .directive.apply(null, robin.directives.GameDirective);
-
-
-// The menu
-var menuDeferred;
-home.controller('MenuCtrl', ['$scope', 'apiService', 'userList', robin.controllers.MenuCtrl])
-    .factory('userList', ['$q', function($q) {
-        menuDeferred = $q.defer();
-        return menuDeferred.promise;
-    }])
+    .directive.apply(null, robin.directives.GameDirective)
     .factory('apiService', robin.services.APIService.factory);
-goog.exportSymbol('robin.bootstrap.initializeMenu', function(userJson) {
-    var userList = robin.Utils.parseNodeResponse(userJson, robin.api.UserParser.parseListFromJson);
-    var templateOut = [];
-    for (var i = 0; i < userList.length; ++i) {
-        templateOut.push(userList[i].getName());
-    }
-    robin.Utils.resolveAtRootScope(injector, menuDeferred, templateOut);
-});
 
 
 // The unapproved games section
 var unapprovedDeferred;
-home.controller('UnapprovedCtrl', ['$scope', 'unapprovedList', robin.controllers.UnapprovedCtrl])
+home.controller('UnapprovedCtrl', ['$scope', 'apiService', 'unapprovedList', robin.controllers.UnapprovedCtrl])
     .factory('unapprovedList', ['$q', function($q) {
         unapprovedDeferred = $q.defer();
         return unapprovedDeferred.promise;

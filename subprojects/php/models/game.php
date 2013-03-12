@@ -97,8 +97,10 @@ class Game {
     }
 
     public static function CreateGame($player1, $player2, $player1Score, $player2Score, $date) {
+        if (!User::LoadByID($player2)) {
+            return false;
+        }
         try {
-            echo "INSERT INTO games (player1, player2, player1score, player2score, `date`) VALUES ($player1, $player2, $player1Score, $player2Score, $date)";
             DBConnection::getInstance()->query("INSERT INTO games (player1, player2, player1score, player2score, `date`) VALUES ($player1, $player2, $player1Score, $player2Score, '$date')");
             return true;
         } catch (Exception $err) {

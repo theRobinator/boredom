@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+<head>
+    <title>Ping Pong!</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div id="MenuContainer" style="float: left; padding: 5px; margin: 5px; border: 1px solid grey">
+        <div ng-controller="MenuCtrl" ng-include src="'menu.soy'" id="Menu"></div>
+    </div>
+    <div id="ContentContainer" style="float:left;">
+        <div ng-controller="NewGameCtrl" ng-include src="'games_newform.soy'" id="NewGame"></div>
+    </div>
+    <script src="js/angular.min.js"></script>
+    <script src="js/en_US/module_newgame.js"></script>

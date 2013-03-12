@@ -7,9 +7,10 @@
 {literal}
 <div ng-controller="UnapprovedCtrl" ng-show="games.length">
     <h1>Unapproved Games</h1>
+    <span ng-show="errorMsg">{{errorMsg}}<br /></span>
     <div ng-repeat="game in games" >
         <game game="game"></game>
-        <button ng-click="approve(game.id)">Approve</button> <button ng-click="deny(game.id)">Approve</button>
+        <button ng-click="approve({{$index}})">Approve</button> <button ng-click="deny({{$index}})">Deny</button>
     </div>
 </div>
 {/literal}
@@ -36,5 +37,23 @@
     {{date}}<br />
     <b>{{winner}}</b> {{verb}} <b>{{loser}}</b>, {{winnerScore}} to {{loserScore}}.
 </div>
+{/literal}
+{/template}
+
+
+/**
+ */
+{template .newForm}
+{literal}
+<form ng-controller="NewGameCtrl" onsubmit="return false;">
+    Opponent:
+    <select ng-model="opponent">
+        <option ng-repeat="user in users" value="{{user.id}}">{{user.name}}</option>
+    </select><br />
+    Your score: <input type="text" ng-model="player1score" /><br />
+    Their score: <input type="text" ng-model="player2score" /><br />
+    <input type="button" ng-click="submit()" value="Create"/><br />
+    <span ng-show="errorMsg">{{errorMsg}}</span>
+</form>
 {/literal}
 {/template}
