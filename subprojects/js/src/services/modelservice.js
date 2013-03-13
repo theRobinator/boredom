@@ -1,61 +1,41 @@
 goog.provide('robin.services.ModelService');
 
-goog.require('robin.collections.TemplatableCollection');
+goog.require('robin.collections.ArrayCollection');
 
 /**
+ * The ModelService provides a way to share an ArrayCollection of objects between different controllers. It should be
+ * extended by other services that provide specific models.
+ *
+ * A ModelService will always return the same ArrayCollection when getModel is called. This allows listeners in angular
+ * to do their job without worry. When the setModel method is called, the internal ArrayCollection will have all of its
+ * elements reset to match the passed-in array.
+ *
  * @constructor
  */
 robin.services.ModelService = function() {
 };
 
 /**
- * @type {!robin.collections.TemplatableCollection}
+ * @type {!robin.collections.ArrayCollection}
  * @private
  */
-robin.services.ModelService.prototype.newsfeedModel_;
+robin.services.ModelService.prototype.model_;
 
 /**
- * @type {!robin.collections.TemplatableCollection}
- * @private
+ * @return {!robin.collections.ArrayCollection}
  */
-robin.services.ModelService.prototype.userModel_;
-
-
-/**
- * @return {!robin.collections.TemplatableCollection}
- */
-robin.services.ModelService.prototype.getNewsfeedModel = function() {
-    return this.newsfeedModel_ || (this.newsfeedModel_ = new robin.collections.TemplatableCollection());
+robin.services.ModelService.prototype.getModel = function() {
+    return this.newsfeedModel_ || (this.newsfeedModel_ = new robin.collections.ArrayCollection());
 };
 
 /**
- * @return {!robin.collections.TemplatableCollection}
+ * @param {!Array} model
  */
-robin.services.ModelService.prototype.getUserModel = function() {
-    return this.userModel_ || (this.userModel_ = new robin.collections.TemplatableCollection());
-};
-
-
-/**
- * @param {!Array.<!robin.models.Game>} newsfeedModel
- */
-robin.services.ModelService.prototype.setNewsfeedModel = function(newsfeedModel) {
+robin.services.ModelService.prototype.setModel = function(model) {
     if (!this.newsfeedModel_) {
-        this.newsfeedModel_ = new robin.collections.TemplatableCollection(newsfeedModel);
+        this.newsfeedModel_ = new robin.collections.ArrayCollection(model);
     } else {
         this.newsfeedModel_.removeAll();
-        this.newsfeedModel_.addAllAt(0, newsfeedModel);
-    }
-};
-
-/**
- * @param {!Array.<!robin.models.User>} userModel
- */
-robin.services.ModelService.prototype.setUserModel = function(userModel) {
-    if (!this.userModel_) {
-        this.userModel_ = new robin.collections.TemplatableCollection(userModel);
-    } else {
-        this.userModel_.removeAll();
-        this.userModel_.addAllAt(0, userModel);
+        this.newsfeedModel_.addAllAt(0, model);
     }
 };

@@ -2,7 +2,7 @@ goog.provide('robin.controllers.GameListCtrl');
 
 goog.require('robin.directives.GameDirective');
 goog.require('robin.services.APIService');
-goog.require('robin.services.ModelService');
+goog.require('robin.services.NewsfeedModelService');
 goog.require('robin.soy.Games');
 goog.require('robin.Utils');
 
@@ -18,15 +18,12 @@ robin.controllers.GameListCtrl = function($scope, gameList) {
 
 
 // Initialize the module
-angular.module('gameList', []).controller('GameListCtrl', ['$scope', 'newsfeedList', robin.controllers.GameListCtrl])
-    .factory('newsfeedList', ['modelService', function(modelService) {
-        return modelService.getNewsfeedModel().getTemplateArray();
+angular.module('controllers.gameList', ['directives.game']).controller('GameListCtrl', ['$scope', 'newsfeedList', robin.controllers.GameListCtrl])
+    .factory('newsfeedList', ['newsfeedModelService', function(newsfeedModelService) {
+        return newsfeedModelService.getModel().getSource();
     }])
-    .factory('modelService', function() {
-        return new robin.services.ModelService();
-    })
+    .factory('newsfeedModelService', robin.services.NewsfeedModelService.factory)
     .factory('apiService', robin.services.APIService.factory)
     .run(['$templateCache', function($templateCache) {
         $templateCache.put('games_list.soy', robin.soy.Games.list());
-    }])
-    .directive.apply(null, robin.directives.GameDirective);
+    }]);

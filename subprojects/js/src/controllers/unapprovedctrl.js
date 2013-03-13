@@ -1,30 +1,33 @@
 goog.provide('robin.controllers.UnapprovedCtrl');
 
 goog.require('robin.api.GameParser');
+goog.require('robin.collections.ArrayCollection');
 goog.require('robin.directives.GameDirective');
 goog.require('robin.services.APIService');
-goog.require('robin.services.ModelService');
+goog.require('robin.services.NewsfeedModelService');
 goog.require('robin.soy.Games');
 goog.require('robin.Utils');
 
 /**
- * Controller for handling authentication from the login page.
- *
  * @param {angular.Scope} $scope
  * @param {robin.services.APIService} apiService
- * @param {robin.services.ModelService} modelService
- * @param {Array.<robin.models.Game>|angular.$q.Promise} gameList
+ * @param {robin.services.NewsfeedModelService} newsfeedModelService
+ * @param {robin.collections.ArrayCollection} gameList
  */
-robin.controllers.UnapprovedCtrl = function($scope, apiService, modelService, gameList) {
-    $scope['games'] = gameList;
+robin.controllers.UnapprovedCtrl = function($scope, apiService, newsfeedModelService, gameList) {
+    $scope['games'] = gameList.getSource();
 
     var removeGame = function(id, approve) {
-        var newsfeedModel = modelService.getNewsfeedModel();
-        for (var i = 0; i < newsfeedModel.getLength(); ++i) {
-            if (newsfeedModel.getItemAt(i).getId() == id) {
-                newsfeedModel.removeItemAt(i);
+        var oldGame;
+        for (var i = 0; i < gameList.getLength(); ++i) {
+            oldGame = gameList.getItemAt(i);
+            if (oldGame.getId() == id) {
+                gameList.removeItemAt(i);
                 break;
             }
+        }
+        if (approve) {
+            newsfeedModelService.getModel().addItemAt(oldGame, 0);
         }
     };
 
@@ -59,15 +62,13 @@ robin.controllers.UnapprovedCtrl = function($scope, apiService, modelService, ga
 
 
 // Initialize the module
-var unapprovedDeferred;
-angular.module('unapprovedGames', []).controller('UnapprovedCtrl', ['$scope', 'apiService', 'modelService', 'unapprovedList', robin.controllers.UnapprovedCtrl])
-    .factory('unapprovedList', ['$q', function($q) {
-        unapprovedDeferred = $q.defer();
-        return unapprovedDeferred.promise;
-    }])
-    .factory('modelService', function() {
-        return new robin.services.ModelService();
+var unapprovedGames;
+angular.module('controllers.unapprovedGames', ['directives.game']).controller('UnapprovedCtrl', ['$scope', 'apiService', 'newsfeedModelService', 'unapprovedList', robin.controllers.UnapprovedCtrl])
+    .factory('unapprovedList', function() {
+        unapprovedGames = new robin.collections.ArrayCollection();
+        return unapprovedGames;
     })
+    .factory('newsfeedModelService', robin.services.NewsfeedModelService.factory)
     .factory('apiService', robin.services.APIService.factory)
     .run(['$templateCache', function($templateCache) {
         $templateCache.put('games_unapproved.soy', robin.soy.Games.unapprovedSection());
@@ -76,5 +77,9 @@ angular.module('unapprovedGames', []).controller('UnapprovedCtrl', ['$scope', 'a
 
 goog.exportSymbol('robin.bootstrap.initializeUnapprovedGames', function(gameJson) {
     var gameList = robin.Utils.parseNodeResponse(gameJson, robin.api.GameParser.parseListFromJson);
-    robin.Utils.resolveAtRootScope(injector, unapprovedDeferred, gameList);
+    injector.invoke(['$rootScope', function($rootScope) {
+        $rootScope.$apply(function() {
+            unapprovedGames.addAllAt(0, gameList);
+        });
+    }]);
 });

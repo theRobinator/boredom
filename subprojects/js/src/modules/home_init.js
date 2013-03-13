@@ -6,14 +6,16 @@ goog.require('robin.Utils');
 
 
 // The module
-var home = angular.module('home', ['menu', 'gameList', 'unapprovedGames']);
+var home = angular.module('pages.home', ['controllers.menu', 'controllers.gameList', 'controllers.unapprovedGames']);
 
 goog.exportSymbol('robin.bootstrap.initializeNewsfeed', function(gameJson) {
     var gameList = robin.Utils.parseNodeResponse(gameJson, robin.api.GameParser.parseListFromJson);
-    injector.invoke(['modelService', function(modelService) {
-        modelService.setNewsfeedModel(gameList);
+    injector.invoke(['$rootScope', 'newsfeedModelService', function($rootScope, newsfeedModelService) {
+        $rootScope.$apply(function() {
+            newsfeedModelService.setModel(gameList);
+        });
     }]);
 });
 
 // Start 'er up!
-var injector = /** @type {*} */ (angular.bootstrap(/** @type {Element} */ (document), ['home']));
+var injector = /** @type {*} */ (angular.bootstrap(/** @type {Element} */ (document), ['pages.home']));

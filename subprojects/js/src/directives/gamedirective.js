@@ -3,8 +3,8 @@ goog.provide('robin.directives.GameDirective');
 goog.require('robin.soy.Games');
 
 
-robin.directives.GameDirective = [
-    'game',
+angular.module('directives.game', [])
+    .directive('game',
     function(modelService) {
         var dir = {
             'restrict': 'E',
@@ -13,36 +13,34 @@ robin.directives.GameDirective = [
             },
             'template': robin.soy.Games.game(),
             'link': function(scope, element, attrs) {
+                /** @type {robin.models.Game} */
                 var game = scope['game'];
-                var winner;
-                var loser;
-                if (game['player1Score'] > game['player2Score']) {
-                    winner = game['player1'];
-                    loser = game['player2'];
-                } else if (game['player1Score'] > game['player2Score']) {
-                    winner = game['player2'];
-                    loser = game['player1'];
-                } else {
-                    winner = null;
-                    loser = null;
-                }
+                var winner = game.getWinner();
+                var loser = game.getLoser();
+
                 if (winner) {
-                    scope['winner'] = winner['name'];
-                    scope['loser'] = loser['name'];
+                    scope['winner'] = winner.getName();
+                    scope['loser'] = loser.getName();
                 } else {
-                    scope['winner'] = game['player1']['name'];
-                    scope['loser'] = game['player2']['name'];
+                    scope['winner'] = game.getPlayer1().getName();
+                    scope['loser'] = game.getPlayer2().getName();
                 }
 
-                if (winner == game['player1']) {
-                    scope['winnerScore'] = game['player1Score'];
-                    scope['loserScore'] = game['player2Score'];
+                if (winner == game.getPlayer1()) {
+                    scope['winnerScore'] = game.getPlayer1Score();
+                    scope['loserScore'] = game.getPlayer2Score();
                 } else {
-                    scope['winnerScore'] = game['player2Score'];
-                    scope['loserScore'] = game['player1Score'];
+                    scope['winnerScore'] = game.getPlayer2Score();
+                    scope['loserScore'] = game.getPlayer1Score();
                 }
 
-                scope['date'] = game['date'];
+                /** @type {goog.date.DateTime} */
+                var date = game.getDate();
+                if (date) {
+                    scope['date'] = date.getMonth() + '/' + date.getDay() + '/' + date.getYear();
+                } else {
+                    scope['date'] = '';
+                }
 
                 if (winner) {
                     var verbs = ['defeated', 'ambushed', 'annihilated', 'beat down', 'beat', 'butchered', 'crushed', 'decimated', 'demolished', 'eradicated', 'exterminated', 'finished', 'mowed down', 'murdered', 'obliterated', 'overpowered', 'overthrew', 'overwhelmed', 'routed', 'sacked', 'slaughtered', 'smashed', 'took out', 'trampled', 'trashed', 'vanquished', 'wiped out', 'wrecked'];
@@ -54,4 +52,4 @@ robin.directives.GameDirective = [
         };
         return dir;
     }
-];
+);

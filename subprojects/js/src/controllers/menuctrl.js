@@ -4,7 +4,7 @@ goog.require('robin.api.APIEndpoints');
 goog.require('robin.api.UserParser');
 goog.require('robin.Paths');
 goog.require('robin.services.APIService');
-goog.require('robin.services.ModelService');
+goog.require('robin.services.UserModelService');
 goog.require('robin.soy.Menu');
 goog.require('robin.Utils');
 
@@ -35,14 +35,12 @@ robin.controllers.MenuCtrl = function($scope, apiService, userList) {
 
 // Initialize the menu module so that it can be included as a dependency
 var menuDeferred;
-angular.module('menu', []).controller('MenuCtrl', ['$scope', 'apiService', 'userList', robin.controllers.MenuCtrl])
-    .factory('userList', ['modelService', function(modelService) {
-        return modelService.getUserModel().getTemplateArray();
+angular.module('controllers.menu', []).controller('MenuCtrl', ['$scope', 'apiService', 'userList', robin.controllers.MenuCtrl])
+    .factory('userList', ['userModelService', function(userModelService) {
+        return userModelService.getModel().getSource();
     }])
     .factory('apiService', robin.services.APIService.factory)
-    .factory('modelService', function() {
-        return new robin.services.ModelService();
-    })
+    .factory('userModelService', robin.services.UserModelService.factory)
     .run(['$templateCache', function($templateCache) {
             $templateCache.put('menu.soy', robin.soy.Menu.menu());
     }]);
@@ -50,7 +48,9 @@ angular.module('menu', []).controller('MenuCtrl', ['$scope', 'apiService', 'user
 
 goog.exportSymbol('robin.bootstrap.initializeMenu', function(userJson) {
     var userList = robin.Utils.parseNodeResponse(userJson, robin.api.UserParser.parseListFromJson);
-    injector.invoke(['modelService', function(modelService) {
-        modelService.setUserModel(userList);
+    injector.invoke(['$rootScope', 'userModelService', function($rootScope, userModelService) {
+        $rootScope.$apply(function() {
+            userModelService.setModel(userList);
+        });
     }]);
 });

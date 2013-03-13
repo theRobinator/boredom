@@ -4,9 +4,9 @@ goog.provide('robin.models.RankingListItem');
  * @constructor
  */
 robin.models.RankingListItem = function(id, name, rank) {
-    this.id_ = id;
-    this.name_ = name;
-    this.rank_ = rank;
+    this['id'] = id;
+    this['name'] = name;
+    this['rank'] = rank;
 };
 
 
@@ -14,20 +14,19 @@ robin.models.RankingListItem = function(id, name, rank) {
  * @type {number}
  * @private
  */
-robin.models.RankingListItem.prototype.id_;
+robin.models.RankingListItem.prototype.id;
 
 /**
  * @type {string}
  * @private
  */
-robin.models.RankingListItem.prototype.name_;
+robin.models.RankingListItem.prototype.name;
 
 /**
  * @type {number}
  * @private
  */
-robin.models.RankingListItem.prototype.rank_;
-
+robin.models.RankingListItem.prototype.rank;
 
 
 
@@ -35,21 +34,21 @@ robin.models.RankingListItem.prototype.rank_;
  * @return {number}
  */
 robin.models.RankingListItem.prototype.getId = function() {
-    return this.id_;
+    return this['id'];
 };
 
 /**
  * @return {string}
  */
 robin.models.RankingListItem.prototype.getName = function() {
-    return this.name_;
+    return this['name'];
 };
 
 /**
  * @return {number}
  */
 robin.models.RankingListItem.prototype.getRank = function() {
-    return this.rank_;
+    return this['rank'];
 };
 
 

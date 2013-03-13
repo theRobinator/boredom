@@ -1,64 +1,18 @@
 goog.provide('robin.models.User');
 goog.provide('robin.models.UserBuilder');
 
-goog.require('robin.interfaces.ITemplatable');
-
 
 /**
  * @constructor
- * @implements {robin.interfaces.ITemplatable}
  * @param {robin.models.UserBuilder} builder
  */
 robin.models.User = function(builder) {
-    this.id_ = builder.id;
-    this.name_ = builder.name;
-    this.wins_ = builder.wins;
-    this.losses_ = builder.losses;
-    this.gamesPlayed_ = builder.gamesPlayed;
-
-    this.templateArray_ = {
-        'id': this.id_,
-        'name': this.name_,
-        'wins': this.wins_,
-        'losses': this.losses_,
-        'gamesPlayed': this.gamesPlayed_
-    };
+    this['id'] = builder.id;
+    this['name'] = builder.name;
+    this['wins'] = builder.wins;
+    this['losses'] = builder.losses;
+    this['gamesPlayed'] = builder.gamesPlayed;
 };
-
-
-/**
- * @type {number}
- * @private
- */
-robin.models.User.prototype.gamesPlayed_;
-
-/**
- * @type {number}
- * @private
- */
-robin.models.User.prototype.id_;
-
-/**
- * @type {number}
- * @private
- */
-robin.models.User.prototype.losses_;
-
-/**
- * @type {string}
- * @private
- */
-robin.models.User.prototype.name_;
-
-/**
- * @type {number}
- */
-robin.models.User.prototype.wins_;
-
-/**
- * @type {!Object}
- */
-robin.models.User.prototype.templateArray_;
 
 
 /**
@@ -66,51 +20,46 @@ robin.models.User.prototype.templateArray_;
  */
 robin.models.User.prototype.equals = function(otherUser) {
     return !!otherUser &&
-        this.id_ == otherUser.getId() &&
-        this.name_ == otherUser.getName() &&
-        this.wins_ == otherUser.getWins() &&
-        this.losses_ == otherUser.getLosses() &&
-        this.gamesPlayed_ == otherUser.getGamesPlayed();
+        this.getId() == otherUser.getId() &&
+        this.getName() == otherUser.getName() &&
+        this.getWins() == otherUser.getWins() &&
+        this.getLosses() == otherUser.getLosses() &&
+        this.getGamesPlayed() == otherUser.getGamesPlayed();
 };
 
 /**
  * @return {number}
  */
 robin.models.User.prototype.getGamesPlayed = function() {
-    return this.gamesPlayed_;
+    return this['gamesPlayed'];
 };
 
 /**
  * @return {number}
  */
 robin.models.User.prototype.getId = function() {
-    return this.id_;
+    return this['id'];
 };
 
 /**
  * @return {number}
  */
 robin.models.User.prototype.getLosses = function() {
-    return this.losses_;
+    return this['losses'];
 };
 
 /**
  * @return {string}
  */
 robin.models.User.prototype.getName = function() {
-    return this.name_;
+    return this['name'];
 };
 
 /**
  * @return {number}
  */
 robin.models.User.prototype.getWins = function() {
-    return this.wins_;
-};
-
-/** @inheritDoc */
-robin.models.User.prototype.toTemplateArray = function() {
-    return this.templateArray_;
+    return this['wins'];
 };
 
 

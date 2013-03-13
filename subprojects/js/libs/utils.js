@@ -14,7 +14,7 @@ robin.Utils.resolveAtRootScope = function(injector, deferred, value) {
             deferred.resolve(value);
         });
     }]);
-}
+};
 
 
 /**

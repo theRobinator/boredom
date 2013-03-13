@@ -6,6 +6,7 @@ require_once API_DIR . 'logoutapicontroller.php';
 require_once API_DIR . 'registerapicontroller.php';
 require_once API_DIR . 'gamecreateapicontroller.php';
 require_once API_DIR . 'gameapproveapicontroller.php';
+require_once API_DIR . 'gamedenyapicontroller.php';
 require_once API_DIR . 'gameslistapicontroller.php';
 require_once API_DIR . 'unapprovedgameslistapicontroller.php';
 require_once API_DIR . 'newsfeedlistapicontroller.php';
@@ -19,6 +20,7 @@ $ROUTE_MAPPING = array(
     '/user/list' => 'UserListAPIController',
     '/games/create' => 'GameCreateAPIController',
     '/games/approve' => 'GameApproveAPIController',
+    '/games/deny' => 'GameDenyAPIController',
     '/games/list' => 'GamesListAPIController',
     '/games/unapproved' => 'UnapprovedGamesListAPIController',
     '/games/recent' => 'NewsfeedListAPIController',

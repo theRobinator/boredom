@@ -142,4 +142,17 @@ class Game {
             return false;
         }
     }
+
+    public static function DenyGame($id, $user) {
+        try {
+            $game = Game::LoadById($id);
+            if (!$game || $game->getValidated() || $game->getPlayer2()->getId() != $user->getId()) {
+                throw new Exception();
+            }
+            DBConnection::getInstance()->query("DELETE FROM games WHERE id=$id");
+            return true;
+        } catch (Exception $err) {
+            return false;
+        }
+    }
 };

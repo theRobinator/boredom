@@ -3,16 +3,14 @@
 /**
  */
 {template .menu}
-{literal}
 <div ng-controller="MenuCtrl">
     <a href="/home">Home</a><br />
     <a href="/newgame">File a new game</a><br />
     <a ng-click="toggleUserList()">User List</a>
     <div ng-show="showUsers" style="margin-left: 15px;">
-        <div ng-repeat="user in users"><a href="/users/{{user.name}}">{{user.name}}</a></div>
+        {literal}<div ng-repeat="user in users"><a href="/users/{{user.name}}">{{user.name}}</a></div>{/literal}
     </div><br />
     <a href="/ranking">Ranks</a><br />
     <a ng-click="logout()">Log out</a>
 </div>
-{/literal}
 {/template}

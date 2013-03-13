@@ -1,84 +1,19 @@
 goog.provide('robin.models.GameBuilder');
 goog.provide('robin.models.Game');
 
-goog.require('robin.interfaces.ITemplatable');
-
 /**
  * @constructor
- * @implements {robin.interfaces.ITemplatable}
  * @param {robin.models.GameBuilder} builder
  */
 robin.models.Game = function(builder) {
-    this.id_ = builder.id;
-    this.player1_ = builder.player1;
-    this.player2_ = builder.player2;
-    this.player1Score = builder.player1Score;
-    this.player2Score = builder.player2Score;
-    this.validated_ = builder.validated;
-    this.date_ = builder.date;
-
-    var date = this.date_;
-    if (date) {
-        date = date.getMonth() + '/' + date.getDate() + '/' + date.getYear();
-    } else {
-        date = '';
-    }
-    this.templateArray_ = {
-        'id': this.id_,
-        'player1': this.player1_.toTemplateArray(),
-        'player2': this.player2_.toTemplateArray(),
-        'player1Score': this.player1Score,
-        'player2Score': this.player2Score,
-        'validated': this.validated_,
-        'date': date
-    };
+    this['id'] = builder.id;
+    this['player1'] = builder.player1;
+    this['player2'] = builder.player2;
+    this['player1Score'] = builder.player1Score;
+    this['player2Score'] = builder.player2Score;
+    this['validated'] = builder.validated;
+    this['date'] = builder.date;
 };
-
-
-/**
- * @type {goog.date.DateTime}
- * @private
- */
-robin.models.Game.prototype.date_;
-
-/**
- * @type {number}
- * @private
- */
-robin.models.Game.prototype.id_;
-
-/**
- * @type {number}
- */
-robin.models.Game.prototype.player1Score;
-
-/**
- * @type {!robin.models.User}
- * @private
- */
-robin.models.Game.prototype.player1_;
-
-/**
- * @type {number}
- */
-robin.models.Game.prototype.player2Score;
-
-/**
- * @type {!robin.models.User}
- * @private
- */
-robin.models.Game.prototype.player2_;
-
-/**
- * @type {boolean}
- * @private
- */
-robin.models.Game.prototype.validated_;
-
-/**
- * @type {!Object}
- */
-robin.models.Game.prototype.templateArray_;
 
 
 /**
@@ -86,72 +21,72 @@ robin.models.Game.prototype.templateArray_;
  */
 robin.models.Game.prototype.equals = function(otherGame) {
     return !!otherGame &&
-        this.id_ == otherGame.getId() &&
-        this.player1_.getId() == otherGame.getPlayer1().getId() &&
-        this.player2_.getId() == otherGame.getPlayer2().getId() &&
-        this.player1Score == otherGame.getPlayer1Score() &&
-        this.player2Score == otherGame.getPlayer2Score() &&
-        this.validated_ == otherGame.getValidated() &&
-        this.date_ == otherGame.getDate();
+        this.getId() == otherGame.getId() &&
+        this.getPlayer1().getId() == otherGame.getPlayer1().getId() &&
+        this.getPlayer2().getId() == otherGame.getPlayer2().getId() &&
+        this.getPlayer1Score() == otherGame.getPlayer1Score() &&
+        this.getPlayer2Score() == otherGame.getPlayer2Score() &&
+        this.getValidated() == otherGame.getValidated() &&
+        this.getDate() == otherGame.getDate();
 };
 
 /**
  * @return {goog.date.DateTime}
  */
 robin.models.Game.prototype.getDate = function() {
-    return this.date_;
+    return this['date'];
 };
 
 /**
  * @return {number}
  */
 robin.models.Game.prototype.getId = function() {
-    return this.id_;
+    return this['id'];
 };
 
 /**
  * @return {!robin.models.User}
  */
 robin.models.Game.prototype.getPlayer1 = function() {
-    return this.player1_;
+    return this['player1'];
 };
 
 /**
  * @return {number}
  */
 robin.models.Game.prototype.getPlayer1Score = function() {
-    return this.player1Score;
+    return this['player1Score'];
 };
 
 /**
  * @return {!robin.models.User}
  */
 robin.models.Game.prototype.getPlayer2 = function() {
-    return this.player2_;
+    return this['player2'];
 };
 
 /**
  * @return {number}
  */
 robin.models.Game.prototype.getPlayer2Score = function() {
-    return this.player2Score;
+    return this['player2Score'];
 };
 
 /**
  * @return {boolean}
  */
 robin.models.Game.prototype.getValidated = function() {
-    return this.validated_;
+    return this['validated'];
 };
 
 /**
  * @return {robin.models.User}
  */
 robin.models.Game.prototype.getWinner = function() {
-    if (this.player1Score > this.player2Score) {
-        return this.player1_;
-    } else if (this.player2Score > this.player1Score) {
-        return this.player2_;
+    if (this.getPlayer1Score() > this.getPlayer2Score()) {
+        return this.getPlayer1();
+    } else if (this.getPlayer2Score() > this.getPlayer1Score()) {
+        return this.getPlayer2();
     } else {
         return null;
     }
@@ -161,34 +96,15 @@ robin.models.Game.prototype.getWinner = function() {
  * @return {robin.models.User}
  */
 robin.models.Game.prototype.getLoser = function() {
-    if (this.player1Score > this.player2Score) {
-        return this.player2_;
-    } else if (this.player2Score > this.player1Score) {
-        return this.player1_;
+    if (this.getPlayer1Score() > this.getPlayer2Score()) {
+        return this.getPlayer2();
+    } else if (this.getPlayer2Score() > this.getPlayer1Score()) {
+        return this.getPlayer1();
     } else {
         return null;
     }
 };
 
-/**
- * @param {robin.models.Game} otherGame
- */
-robin.models.Game.prototype.update = function(otherGame) {
-    if (!this.equals(otherGame)) {
-        this.id_ = otherGame.getId();
-        this.player1_ = otherGame.getPlayer1();
-        this.player2_ = otherGame.getPlayer2();
-        this.player1Score = otherGame.getPlayer1Score();
-        this.player2Score = otherGame.getPlayer2Score();
-        this.validated_ = otherGame.getValidated();
-        this.date_ = otherGame.getDate();
-    }
-};
-
-/** @inheritDoc */
-robin.models.Game.prototype.toTemplateArray = function() {
-    return this.templateArray_;
-};
 
 
 /**

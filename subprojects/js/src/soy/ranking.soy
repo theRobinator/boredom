@@ -6,10 +6,11 @@
 {literal}
 <div ng-controller="RankingCtrl">
     <h4>Rankings:</h4>
-    <div>
-        <div ng-repeat="item in rankingList">
-            <span>{{item}}</span></div>
-    </div>
+    <ol>
+        <li ng-repeat="item in rankingList">
+            <span>{{item}}</span>
+        </li>
+    </ol>
 </div>
 {/literal}
 {/template}

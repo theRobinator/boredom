@@ -1,16 +1,20 @@
 goog.provide('robin.controllers.NewGameCtrl');
 
 goog.require('robin.api.APIEndpoints');
+goog.require('robin.api.UserParser');
+goog.require('robin.services.APIService');
+goog.require('robin.soy.Games');
 goog.require('robin.Paths');
+goog.require('robin.Utils');
 
 /**
  * Controller for handling authentication from the login page.
  *
  * @param {angular.Scope} $scope
  * @param {robin.services.APIService} apiService
- * @param {Array.<robin.models.User>|angular.$q.Promise} userList
+ * @param {robin.collections.ArrayCollection} newGameList
  */
-robin.controllers.NewGameCtrl = function($scope, apiService, userList) {
+robin.controllers.NewGameCtrl = function($scope, apiService, newGameList) {
     $scope['submit'] = function() {
         $scope['errorMsg'] = '';
         apiService.sendRequest({
@@ -34,5 +38,28 @@ robin.controllers.NewGameCtrl = function($scope, apiService, userList) {
         });
     };
 
-    $scope['users'] = userList;
+    $scope['users'] = newGameList.getSource();
 };
+
+
+// Initialize the module
+var newGameUsers;
+angular.module('controllers.newGame', []).controller('NewGameCtrl', ['$scope', 'apiService', 'newGameList', robin.controllers.NewGameCtrl])
+    .factory('newGameList', function() {
+        newGameUsers = new robin.collections.ArrayCollection();
+        return newGameUsers;
+    })
+    .factory('apiService', robin.services.APIService.factory)
+    .run(['$templateCache', function($templateCache) {
+        $templateCache.put('games_newform.soy', robin.soy.Games.newForm());
+    }]);
+
+
+goog.exportSymbol('robin.bootstrap.initializeNewGameForm', function(userJson) {
+    var userList = robin.Utils.parseNodeResponse(userJson, robin.api.UserParser.parseListFromJson);
+    injector.invoke(['$rootScope', function($rootScope) {
+        $rootScope.$apply(function() {
+            newGameUsers.addAllAt(0, userList);
+        });
+    }]);
+});
