@@ -27,8 +27,6 @@ project['build.apps'].split(',').each { app ->
 }
 
 task debugAll
-subprojects {
-    afterEvaluate { sub ->
-        sub.tasks.findAll { it.name.startsWith 'debug' }.each { debugAll.dependsOn it }
-    }
+afterEvaluate { sub ->
+    sub.tasks.findAll { it.name.startsWith 'debug' }.minus(tasks.debugAll).each { debugAll.dependsOn it }
 }

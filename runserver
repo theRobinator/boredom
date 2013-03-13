@@ -24,10 +24,9 @@ if [ ! "$*" == "" ]; then
     ./gradlew $@ || exit 1
 fi
 
-# The server lives in the build directory, so we can't do anything if that doesn't exist
+# The server lives in the build directory, so it needs to be built if that dir doesn't exist
 if [ ! -e build ]; then
-    echo 'You must build the server using arguments (e.g. debugNode) before you run it.'
-    exit 1
+    ./gradlew debugAll || exit 1
 fi
 
 # Make sure to set node's include path to the current directory before running

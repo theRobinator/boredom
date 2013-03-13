@@ -43,7 +43,7 @@ environments {
     dev {
         define['goog.DEBUG'] = true
 
-        this['module-output-path'] = "${buildDir}/${app}/${locale}/module_%s.js"
+        this['module-output-path'] = "${buildDir}/${appName}/${locale}/module_%s.js"
 
         if (whitespace) {
             mode = 'WHITESPACE'
@@ -55,8 +55,8 @@ environments {
         this['module-production-gzip-uri'] = "${staticUrl}/js/${locale}/module_%s.gz.js"
         this['module-gzip-output-path'] = "${buildDir}/js/${locale}/module_%s.gz.js"
 
-        this['variable-map-output-file'] = "${buildDir}/map/var_${app}_${locale}.map"
-        this['property-map-output-file'] = "${buildDir}/map/prop_${app}_${locale}.map"
+        this['variable-map-output-file'] = "${buildDir}/map/var_${appName}_${locale}.map"
+        this['property-map-output-file'] = "${buildDir}/map/prop_${appName}_${locale}.map"
 
         this['soy-message-file-path-format'] = "${projectDir}/locale/${configLocale}/messages.po"
     }

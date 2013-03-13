@@ -39,8 +39,9 @@ project['build.apps'].split(',').each { app ->
         outputs.dir "${project.buildDir}/${app}"
 
         doLast {
-            File configFile = generatePlovrConfig app, 'en_US', 'dev', [
-                'whitespace': project.hasProperty('whitespace')
+            File configFile = generatePlovrConfig 'page', 'en_US', 'dev', [
+                'whitespace': project.hasProperty('whitespace'),
+                'appName': app
             ]
 
             javaexec {
