@@ -24,7 +24,7 @@ angular.module('controllers.ranking', []).controller('RankingCtrl', ['$scope', '
         return rankingList;
     })
     .run(['$templateCache', function($templateCache) {
-        $templateCache.put('ranking_list.soy', robin.soy.Ranking.list());
+        $templateCache.put('ranking.list.soy', robin.soy.Ranking.list());
     }]);
 
 

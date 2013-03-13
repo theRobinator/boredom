@@ -9,8 +9,8 @@
         <div ng-controller="MenuCtrl" ng-include src="'menu.soy'" id="Menu"></div>
     </div>
     <div id="ContentContainer" style="float:left;">
-        <div ng-controller="UnapprovedCtrl" ng-include src="'games_unapproved.soy'" id="UnapprovedGames"></div>
-        <div ng-controller="GameListCtrl" ng-include src="'games_list.soy'" id="Newsfeed"></div>
+        <div ng-controller="UnapprovedCtrl" ng-include src="'games.unapproved.soy'" id="UnapprovedGames"></div>
+        <div ng-controller="GameListCtrl" ng-include src="'games.list.soy'" id="Newsfeed"></div>
     </div>
     <script src="js/angular.min.js"></script>
     <script src="js/en_US/module_home.js"></script>

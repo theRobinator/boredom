@@ -3,7 +3,7 @@ id = 'ranking'
 modules {
 
 	ranking {
-		inputs = "${projectDir}/src/modules/ranking_init.js"
+		inputs = "${projectDir}/src/pages/ranking_init.js"
 		deps = [ ]
 	}
 }

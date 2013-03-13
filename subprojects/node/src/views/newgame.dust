@@ -9,7 +9,7 @@
         <div ng-controller="MenuCtrl" ng-include src="'menu.soy'" id="Menu"></div>
     </div>
     <div id="ContentContainer" style="float:left;">
-        <div ng-controller="NewGameCtrl" ng-include src="'games_newform.soy'" id="NewGame"></div>
+        <div ng-controller="NewGameCtrl" ng-include src="'games.newform.soy'" id="NewGame"></div>
     </div>
     <script src="js/angular.min.js"></script>
     <script src="js/en_US/module_newgame.js"></script>

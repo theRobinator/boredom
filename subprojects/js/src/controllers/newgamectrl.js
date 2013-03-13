@@ -51,7 +51,7 @@ angular.module('controllers.newGame', []).controller('NewGameCtrl', ['$scope', '
     })
     .factory('apiService', robin.services.APIService.factory)
     .run(['$templateCache', function($templateCache) {
-        $templateCache.put('games_newform.soy', robin.soy.Games.newForm());
+        $templateCache.put('games.newform.soy', robin.soy.Games.newForm());
     }]);
 
 

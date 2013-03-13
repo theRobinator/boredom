@@ -8,7 +8,7 @@ var index = angular.module('login', [])
     .factory('apiService', robin.services.APIService.factory);
 
 index.run(['$templateCache', function($templateCache) {
-    $templateCache.put('login_form.soy', robin.soy.Login.form());
+    $templateCache.put('login.form.soy', robin.soy.Login.form());
 }]);
 
 angular.bootstrap(/** @type {Element} */ (document), ['login']);

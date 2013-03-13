@@ -3,7 +3,7 @@ id = 'home'
 modules {
 
 	home {
-		inputs = "${projectDir}/src/modules/home_init.js"
+		inputs = "${projectDir}/src/pages/home_init.js"
 		deps = [ ]
 	}
 }

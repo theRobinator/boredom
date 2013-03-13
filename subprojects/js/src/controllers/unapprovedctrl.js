@@ -71,7 +71,7 @@ angular.module('controllers.unapprovedGames', ['directives.game']).controller('U
     .factory('newsfeedModelService', robin.services.NewsfeedModelService.factory)
     .factory('apiService', robin.services.APIService.factory)
     .run(['$templateCache', function($templateCache) {
-        $templateCache.put('games_unapproved.soy', robin.soy.Games.unapprovedSection());
+        $templateCache.put('games.unapproved.soy', robin.soy.Games.unapprovedSection());
     }]);
 
 

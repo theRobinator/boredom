@@ -3,7 +3,7 @@ id = 'login'
 modules {
 
 	login {
-		inputs = "${projectDir}/src/modules/login_init.js"
+		inputs = "${projectDir}/src/pages/login_init.js"
 		deps = [ ]
 	}
 }

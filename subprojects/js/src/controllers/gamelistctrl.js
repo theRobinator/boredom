@@ -25,5 +25,5 @@ angular.module('controllers.gameList', ['directives.game']).controller('GameList
     .factory('newsfeedModelService', robin.services.NewsfeedModelService.factory)
     .factory('apiService', robin.services.APIService.factory)
     .run(['$templateCache', function($templateCache) {
-        $templateCache.put('games_list.soy', robin.soy.Games.list());
+        $templateCache.put('games.list.soy', robin.soy.Games.list());
     }]);
