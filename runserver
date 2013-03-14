@@ -3,9 +3,9 @@
 # Check for usage args
 if [ "$1" == "-h" -o "$1" == "--help" ]; then
     PROG_NAME=$(basename $0)
-    echo "$PROG_NAME: Run the node server for the current project."
+    echo "$PROG_NAME: Run (and optionally build) the node server and code for the current project."
     echo "If arguments are passed, they will be used to build the server before running it."
-    echo "Usage: $(basename $0) [build_args]"
+    echo "Usage: $PROG_NAME [gradle_args]"
     exit 0
 fi
 
@@ -15,7 +15,7 @@ while [ ! -e gradlew ] && [ "$PWD" != "/" ]; do
 done
 
 if [ ! -e gradlew ]; then
-    echo "You have to run this command from somewhere inside a locale checkout."
+    echo "You have to run this command from somewhere inside a project."
     exit 1
 fi
 

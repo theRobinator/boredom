@@ -67,9 +67,8 @@ robin.services.APIService.prototype.sendRequest = function(options) {
     return deferred.promise;
 };
 
-/**
- * @type {Array}
- */
-robin.services.APIService.factory = ['$http', '$q', function($http, $q) {
-    return new robin.services.APIService($http, $q);
-}];
+
+angular.module('services.apiService', [])
+    .factory('apiService', ['$http', '$q', function($http, $q) {
+        return new robin.services.APIService($http, $q);
+    }]);

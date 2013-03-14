@@ -3,6 +3,9 @@ goog.provide('robin.controllers.LoginCtrl');
 goog.require('robin.api.APIEndpoints');
 goog.require('robin.api.UserParser');
 goog.require('robin.Paths');
+goog.require('robin.services.APIService');
+goog.require('robin.soy.Login');
+
 
 /**
  * Controller for handling authentication from the login page.
@@ -55,3 +58,9 @@ robin.controllers.LoginCtrl = function($scope, apiService) {
         });
     };
 };
+
+angular.module('controllers.login', ['services.apiService'])
+    .controller('LoginCtrl', ['$scope', 'apiService', robin.controllers.LoginCtrl])
+    .run(['$templateCache', function($templateCache) {
+        $templateCache.put('login.form.soy', robin.soy.Login.form());
+    }]);

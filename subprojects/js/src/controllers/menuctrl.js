@@ -34,13 +34,11 @@ robin.controllers.MenuCtrl = function($scope, apiService, userList) {
 
 
 // Initialize the menu module so that it can be included as a dependency
-var menuDeferred;
-angular.module('controllers.menu', []).controller('MenuCtrl', ['$scope', 'apiService', 'userList', robin.controllers.MenuCtrl])
-    .factory('userList', ['userModelService', function(userModelService) {
+angular.module('controllers.menu', ['services.apiService', 'services.userModelService'])
+    .controller('MenuCtrl', ['$scope', 'apiService', 'menuCtrl_userList', robin.controllers.MenuCtrl])
+    .factory('menuCtrl_userList', ['userModelService', function(userModelService) {
         return userModelService.getModel().getSource();
     }])
-    .factory('apiService', robin.services.APIService.factory)
-    .factory('userModelService', robin.services.UserModelService.factory)
     .run(['$templateCache', function($templateCache) {
             $templateCache.put('menu.soy', robin.soy.Menu.menu());
     }]);

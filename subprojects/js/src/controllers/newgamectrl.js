@@ -44,12 +44,12 @@ robin.controllers.NewGameCtrl = function($scope, apiService, newGameList) {
 
 // Initialize the module
 var newGameUsers;
-angular.module('controllers.newGame', []).controller('NewGameCtrl', ['$scope', 'apiService', 'newGameList', robin.controllers.NewGameCtrl])
-    .factory('newGameList', function() {
+angular.module('controllers.newGame', ['services.apiService'])
+    .controller('NewGameCtrl', ['$scope', 'apiService', 'newGameCtrl_gameList', robin.controllers.NewGameCtrl])
+    .factory('newGameCtrl_gameList', function() {
         newGameUsers = new robin.collections.ArrayCollection();
         return newGameUsers;
     })
-    .factory('apiService', robin.services.APIService.factory)
     .run(['$templateCache', function($templateCache) {
         $templateCache.put('games.newform.soy', robin.soy.Games.newForm());
     }]);

@@ -18,8 +18,8 @@ robin.controllers.RankingCtrl = function($scope, rankingList) {
 
 
 var rankingList;
-angular.module('controllers.ranking', []).controller('RankingCtrl', ['$scope', 'rankingList', robin.controllers.RankingCtrl])
-    .factory('rankingList', function() {
+angular.module('controllers.ranking', []).controller('RankingCtrl', ['$scope', 'rankingCtrl_rankingList', robin.controllers.RankingCtrl])
+    .factory('rankingCtrl_rankingList', function() {
         rankingList = new robin.collections.ArrayCollection();
         return rankingList;
     })

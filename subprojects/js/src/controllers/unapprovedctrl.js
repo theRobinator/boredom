@@ -63,13 +63,12 @@ robin.controllers.UnapprovedCtrl = function($scope, apiService, newsfeedModelSer
 
 // Initialize the module
 var unapprovedGames;
-angular.module('controllers.unapprovedGames', ['directives.game']).controller('UnapprovedCtrl', ['$scope', 'apiService', 'newsfeedModelService', 'unapprovedList', robin.controllers.UnapprovedCtrl])
-    .factory('unapprovedList', function() {
+angular.module('controllers.unapprovedGames', ['directives.game', 'services.apiService', 'services.newsfeedModelService'])
+    .controller('UnapprovedCtrl', ['$scope', 'apiService', 'newsfeedModelService', 'unapprovedCtrl_unapprovedList', robin.controllers.UnapprovedCtrl])
+    .factory('unapprovedCtrl_unapprovedList', function() {
         unapprovedGames = new robin.collections.ArrayCollection();
         return unapprovedGames;
     })
-    .factory('newsfeedModelService', robin.services.NewsfeedModelService.factory)
-    .factory('apiService', robin.services.APIService.factory)
     .run(['$templateCache', function($templateCache) {
         $templateCache.put('games.unapproved.soy', robin.soy.Games.unapprovedSection());
     }]);
