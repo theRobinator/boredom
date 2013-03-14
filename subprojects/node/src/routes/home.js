@@ -1,56 +1,30 @@
 /*
  * GET home page.
  */
+q = require('q');
+
 newsfeedApiCall = require('api/newsfeedapicall.js');
 unapprovedGamesApiCall = require('api/unapprovedgamesapicall.js');
 userListApiCall = require('api/userlistapicall.js');
+renderutils = require('utils/renderutils.js');
 
 exports.handleRoute = function(request, response) {
-    response.render('home', function (err, out) {
-        if (err) {
-            response.writeHead(500);
-            response.write(err.toString());
-        } else {
-            console.log('writing headers');
-            response.writeHead(200, {
-                'Content-Type': 'text/html; charset=UTF-8'
-            });
-            response.write(out);
+    renderutils.renderPageWithPromises(response, 'home', null, function() {
+        var auth = request.headers.cookie;
+        var promises = [];
 
+        promises.push(userListApiCall.send(auth).then(function(data) {
+            response.write('<script type="text/javascript">robin.bootstrap.initializeMenu(' + JSON.stringify(data) + ');</script>');
+        }));
 
-            var apiCalls = 3;
+        promises.push(unapprovedGamesApiCall.send(auth).then(function(data) {
+            response.write('<script type="text/javascript">robin.bootstrap.initializeUnapprovedGames(' + JSON.stringify(data) + ');</script>');
+        }));
 
-            var responseDone = function() {
-                apiCalls--;
-                if (apiCalls === 0) {
-                    response.write('</body></html>');
-                    response.end();
-                }
-            };
+        promises.push(newsfeedApiCall.send(auth).then(function(data) {
+            response.write('<script type="text/javascript">robin.bootstrap.initializeNewsfeed(' + JSON.stringify(data) + ');</script>');
+        }));
 
-            var auth = request.headers.cookie;
-
-            userListApiCall.send(auth, function(data) {
-                response.write('<script type="text/javascript">robin.bootstrap.initializeMenu(' + JSON.stringify(data) + ');</script>');
-                responseDone();
-            }, function(error) {
-                responseDone();
-            });
-
-            unapprovedGamesApiCall.send(auth, function(data) {
-                response.write('<script type="text/javascript">robin.bootstrap.initializeUnapprovedGames(' + JSON.stringify(data) + ');</script>');
-                responseDone();
-            }, function(error) {
-                responseDone();
-            });
-
-            newsfeedApiCall.send(auth, function(data) {
-                response.write('<script type="text/javascript">robin.bootstrap.initializeNewsfeed(' + JSON.stringify(data) + ');</script>');
-                responseDone();
-            }, function(error) {
-                responseDone();
-            });
-
-        }
-    });
+        return promises;
+    })
 };

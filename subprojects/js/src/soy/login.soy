@@ -6,7 +6,7 @@
 {literal}
 <form onsubmit="return false;" ng-controller="LoginCtrl">
     Username: <input type="text" name="username" ng-model="username" /><br />
-    Password: <input type="text" name="password" ng-model="password" /><br />
+    Password: <input type="password" name="password" ng-model="password" /><br />
     <button ng-click="login()">Log In</button> or <button ng-click="register()">Register</button>
     <span ng-show="error">{{error}}</span>
 </form>

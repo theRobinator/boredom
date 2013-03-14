@@ -4,6 +4,7 @@ querystring = require('querystring');
 util = require('util');
 request = require('request');
 settings = require('settings.js');
+q = require('q');
 
 /**
  * Send an API call.
@@ -12,10 +13,9 @@ settings = require('settings.js');
  *      auth: The auth cookies to use. Optional.
  *      getParams: The get parameters. Optional.
  *      postParams: The post parameters. Optional.
- * @param callback The callback to call with the result. Optional.
- * @param errback The errback to call with the result. Optional.
+ * @return {Q.defer.promise}
  */
-exports.send = function(options, callback, errback) {
+exports.send = function(options) {
     /** @type {Object} */
     var postParams = options.postParams ? querystring.stringify(options.postParams) : '';
 
@@ -44,6 +44,8 @@ exports.send = function(options, callback, errback) {
     }
     headers['Cookie'] = options.auth;
 
+    var deferred = q.defer();
+
     request({
         method: method,
         uri: path,
@@ -61,14 +63,10 @@ exports.send = function(options, callback, errback) {
             if (data && !error && response.statusCode == 200) {
                 // We don't have these if statements combined because we want to skip the errback if we have a good response but no callback
                 if (data && data['response'] && data['response']['type'] == 'success') {
-                    if (callback) {
-                        callback(data);
-                    }
+                    deferred.resolve(data);
                 } else {
                     util.log('Error in API call (bad params): ' + body);
-                    if (errback) {
-                        errback(data);
-                    }
+                    deferred.reject(data);
                 }
             } else {
                 if (error) {
@@ -76,10 +74,9 @@ exports.send = function(options, callback, errback) {
                 } else {
                     util.log('Data returned from an API call was unparsable!' + body);
                 }
-                if (errback) {
-                    errback(null);
-                }
+                deferred.reject(null);
             }
         }
     )
+    return deferred.promise;
 };

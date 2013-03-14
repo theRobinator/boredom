@@ -6,6 +6,7 @@ task debugNode(type: Copy) {
         include 'routes/**'
         include 'views/**'
         include 'api/**'
+        include 'utils/**'
         include 'node_modules/**'
         include '*.js'
         include 'package.json'
