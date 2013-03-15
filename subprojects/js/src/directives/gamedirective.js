@@ -3,9 +3,16 @@ goog.provide('robin.directives.GameDirective');
 goog.require('robin.soy.Games');
 
 
-angular.module('directives.game', [])
+/**
+ * @type {string}
+ * @const
+ */
+robin.directives.GameDirective.NAME = 'directives.game';
+
+
+angular.module(robin.directives.GameDirective.NAME, [])
     .directive('game',
-    function(modelService) {
+    function() {
         var dir = {
             'restrict': 'E',
             'scope': {
@@ -37,7 +44,7 @@ angular.module('directives.game', [])
                 /** @type {goog.date.DateTime} */
                 var date = game.getDate();
                 if (date) {
-                    scope['date'] = date.getMonth() + '/' + date.getDay() + '/' + date.getYear();
+                    scope['date'] = date.getMonth() + '/' + date.getDate() + '/' + date.getYear();
                 } else {
                     scope['date'] = '';
                 }

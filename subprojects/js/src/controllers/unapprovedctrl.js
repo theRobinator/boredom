@@ -60,25 +60,35 @@ robin.controllers.UnapprovedCtrl = function($scope, apiService, newsfeedModelSer
     }
 };
 
+/**
+ * @type {string}
+ * @const
+ */
+robin.controllers.UnapprovedCtrl.NAME = 'controllers.unapprovedGames';
+
 
 // Initialize the module
-var unapprovedGames;
-angular.module('controllers.unapprovedGames', ['directives.game', 'services.apiService', 'services.newsfeedModelService'])
-    .controller('UnapprovedCtrl', ['$scope', 'apiService', 'newsfeedModelService', 'unapprovedCtrl_unapprovedList', robin.controllers.UnapprovedCtrl])
+var unapprovedCtrl_unapprovedList;
+angular.module(robin.controllers.UnapprovedCtrl.NAME, [robin.directives.GameDirective.NAME, robin.services.APIService.NAME, robin.services.NewsfeedModelService.NAME])
+    .controller(robin.controllers.UnapprovedCtrl.NAME, ['$scope', robin.services.APIService.NAME, robin.services.NewsfeedModelService.NAME, 'unapprovedCtrl_unapprovedList', robin.controllers.UnapprovedCtrl])
     .factory('unapprovedCtrl_unapprovedList', function() {
-        unapprovedGames = new robin.collections.ArrayCollection();
-        return unapprovedGames;
+        unapprovedCtrl_unapprovedList = new robin.collections.ArrayCollection();
+        return unapprovedCtrl_unapprovedList;
     })
     .run(['$templateCache', function($templateCache) {
-        $templateCache.put('games.unapproved.soy', robin.soy.Games.unapprovedSection());
+        $templateCache.put('Games.unapprovedSection.soy', robin.soy.Games.unapprovedSection());
     }]);
 
 
-goog.exportSymbol('robin.bootstrap.initializeUnapprovedGames', function(gameJson) {
+/**
+ * @param {Object} gameJson
+ */
+robin.controllers.UnapprovedCtrl.initialize = function(gameJson) {
     var gameList = robin.Utils.parseNodeResponse(gameJson, robin.api.GameParser.parseListFromJson);
     injector.invoke(['$rootScope', function($rootScope) {
         $rootScope.$apply(function() {
-            unapprovedGames.addAllAt(0, gameList);
+            unapprovedCtrl_unapprovedList.addAllAt(0, gameList);
         });
     }]);
-});
+};
+goog.exportSymbol('robin.controllers.UnapprovedCtrl.initialize', robin.controllers.UnapprovedCtrl.initialize);

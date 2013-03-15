@@ -7,16 +7,16 @@ goog.require('robin.Utils');
 
 
 // The module
-var home = angular.module('pages.home', ['controllers.menu', 'controllers.gameList', 'controllers.unapprovedGames', 'services.newsfeedModelService']);
+var home = angular.module('pages.home', [robin.controllers.MenuCtrl.NAME, robin.controllers.GameListCtrl.NAME, robin.controllers.UnapprovedCtrl.NAME, robin.services.NewsfeedModelService.NAME]);
 
 // Initialize the game list with the newsfeed
-home.factory('gameListCtrl_gameList', ['newsfeedModelService', function(newsfeedModelService) {
+home.factory('gameListCtrl_gameList', [robin.services.NewsfeedModelService.NAME, function(newsfeedModelService) {
     return newsfeedModelService.getModel().getSource();
 }]);
 
-goog.exportSymbol('robin.bootstrap.initializeNewsfeed', function(gameJson) {
+goog.exportSymbol('robin.pages.Home.initializeNewsfeed', function(gameJson) {
     var gameList = robin.Utils.parseNodeResponse(gameJson, robin.api.GameParser.parseListFromJson);
-    injector.invoke(['$rootScope', 'newsfeedModelService', function($rootScope, newsfeedModelService) {
+    injector.invoke(['$rootScope', robin.services.NewsfeedModelService.NAME, function($rootScope, newsfeedModelService) {
         $rootScope.$apply(function() {
             newsfeedModelService.setModel(gameList);
         });

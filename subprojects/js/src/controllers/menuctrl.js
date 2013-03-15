@@ -9,18 +9,19 @@ goog.require('robin.soy.Menu');
 goog.require('robin.Utils');
 
 /**
- * Controller for handling authentication from the login page.
+ * Controller for the sidebar menu.
  *
  * @param {angular.Scope} $scope
  * @param {robin.services.APIService} apiService
- * @param {Array.<robin.models.User>|angular.$q.Promise} userList
+ * @param {Array.<robin.models.User>} userList
+ * @constructor
  */
 robin.controllers.MenuCtrl = function($scope, apiService, userList) {
+    $scope['users'] = userList;
+
     $scope['toggleUserList'] = function() {
         $scope['showUsers'] = !$scope['showUsers'];
-    }
-
-    $scope['users'] = userList;
+    };
 
     $scope['logout'] = function() {
         apiService.sendRequest({
@@ -29,26 +30,39 @@ robin.controllers.MenuCtrl = function($scope, apiService, userList) {
         .then(function(response) {
             window.location = robin.Paths.LOGIN;
         });
-    }
+    };
 };
 
+/**
+ * @type {string}
+ * @const
+ */
+robin.controllers.MenuCtrl.NAME = 'controllers.menu';
 
-// Initialize the menu module so that it can be included as a dependency
-angular.module('controllers.menu', ['services.apiService', 'services.userModelService'])
-    .controller('MenuCtrl', ['$scope', 'apiService', 'menuCtrl_userList', robin.controllers.MenuCtrl])
-    .factory('menuCtrl_userList', ['userModelService', function(userModelService) {
+
+
+
+// Create the controller using the basic util
+angular.module(robin.controllers.MenuCtrl.NAME, [robin.services.APIService.NAME, robin.services.UserModelService.NAME])
+    .controller(robin.controllers.MenuCtrl.NAME, ['$scope', robin.services.APIService.NAME, 'menuCtrl_userList', robin.controllers.MenuCtrl])
+    .factory('menuCtrl_userList', [robin.services.UserModelService.NAME, function(userModelService) {
         return userModelService.getModel().getSource();
     }])
     .run(['$templateCache', function($templateCache) {
-            $templateCache.put('menu.soy', robin.soy.Menu.menu());
+        $templateCache.put('Menu.menu.soy', robin.soy.Menu.menu());
     }]);
 
 
-goog.exportSymbol('robin.bootstrap.initializeMenu', function(userJson) {
+/**
+ * Initialize the default MenuCtrl with a user list. This list will be displayed on the menu and will link to profiles.
+ * @param {Object} userJson The returned result from the user list endpoint.
+ */
+robin.controllers.MenuCtrl.initialize = function(userJson) {
     var userList = robin.Utils.parseNodeResponse(userJson, robin.api.UserParser.parseListFromJson);
-    injector.invoke(['$rootScope', 'userModelService', function($rootScope, userModelService) {
+    injector.invoke(['$rootScope', robin.services.UserModelService.NAME, function($rootScope, userModelService) {
         $rootScope.$apply(function() {
             userModelService.setModel(userList);
         });
     }]);
-});
+};
+goog.exportSymbol('robin.controllers.MenuCtrl.initialize', robin.controllers.MenuCtrl.initialize);

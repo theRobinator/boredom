@@ -16,26 +16,37 @@ robin.controllers.RankingCtrl = function($scope, rankingList) {
     $scope['rankingList'] = rankingList.getSource();
 };
 
+/**
+ * @type {string}
+ * @const
+ */
+robin.controllers.RankingCtrl.NAME = 'controllers.ranking';
 
-var rankingList;
-angular.module('controllers.ranking', []).controller('RankingCtrl', ['$scope', 'rankingCtrl_rankingList', robin.controllers.RankingCtrl])
+
+var rankingCtrl_rankingList;
+angular.module(robin.controllers.RankingCtrl.NAME, [])
+    .controller(robin.controllers.RankingCtrl.NAME, ['$scope', 'rankingCtrl_rankingList', robin.controllers.RankingCtrl])
     .factory('rankingCtrl_rankingList', function() {
-        rankingList = new robin.collections.ArrayCollection();
-        return rankingList;
+        rankingCtrl_rankingList = new robin.collections.ArrayCollection();
+        return rankingCtrl_rankingList;
     })
     .run(['$templateCache', function($templateCache) {
-        $templateCache.put('ranking.list.soy', robin.soy.Ranking.list());
+        $templateCache.put('Ranking.list.soy', robin.soy.Ranking.list());
     }]);
 
 
-goog.exportSymbol('robin.bootstrap.initializeRanking', function(userJson) {
+/**
+ * @param {Object} userJson
+ */
+robin.controllers.RankingCtrl.initialize = function(userJson) {
     var parsedResponse = robin.Utils.parseNodeResponse(userJson, robin.api.RankingParser.parseRankingListFromJson);
     goog.array.sort(parsedResponse, function(item1 ,item2) {
         return item2.getRank() - item1.getRank();
     });
     injector.invoke(['$rootScope', function($rootScope) {
         $rootScope.$apply(function() {
-            rankingList.addAllAt(0, parsedResponse);
+            rankingCtrl_rankingList.addAllAt(0, parsedResponse);
         });
     }]);
-});
+};
+goog.exportSymbol('robin.controllers.RankingCtrl.initialize', robin.controllers.RankingCtrl.initialize);

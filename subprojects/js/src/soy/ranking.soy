@@ -3,14 +3,12 @@
 /**
  */
 {template .list}
-{literal}
-<div ng-controller="RankingCtrl">
+<div ng-controller="{{robin.controllers.RankingCtrl.NAME}}">
     <h4>Rankings:</h4>
     <ol>
         <li ng-repeat="item in rankingList">
-            <span>{{item}}</span>
+            <span>{lb}{lb}item{rb}{rb}</span>
         </li>
     </ol>
 </div>
-{/literal}
 {/template}

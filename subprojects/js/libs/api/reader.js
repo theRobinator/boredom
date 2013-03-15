@@ -74,7 +74,7 @@ robin.api.Reader.prototype.string = function(propname) {
  * @return {number}
  */
 robin.api.Reader.prototype.number = function(propname) {
-    return /** @type {number} */ (this.object_[propname]);
+    return /** @type {number} */ (parseInt(this.object_[propname], 10));
 };
 
 /**

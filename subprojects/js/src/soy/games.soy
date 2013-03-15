@@ -4,56 +4,48 @@
 /**
  */
 {template .unapprovedSection}
-{literal}
-<div ng-controller="UnapprovedCtrl" ng-show="games.length">
-    <h1>Unapproved Games</h1>
-    <span ng-show="errorMsg">{{errorMsg}}<br /></span>
+<div ng-controller="controllers.unapprovedGames" ng-show="games.length">
+    <h1 gt-msg desc="header foo">Unapproved Games</h1>
+    <span ng-show="errorMsg">{lb}{lb}errorMsg{rb}{rb}<br /></span>
     <div ng-repeat="game in games" >
         <game game="game"></game>
         <button ng-click="approve(game.id)">Approve</button> <button ng-click="deny(game.id)">Deny</button>
     </div>
 </div>
-{/literal}
 {/template}
 
 
 /**
  */
 {template .list}
-{literal}
-<div ng-controller="GameListCtrl">
+<div ng-controller="controllers.gameList">
     <h1>Recent Games</h1>
     <game ng-repeat="game in games" game="game"></game>
 </div>
-{/literal}
 {/template}
 
 
 /**
  */
 {template .game}
-{literal}
+
 <div style="background-color:grey; padding:10px;">
-    {{date}}<br />
-    <b>{{winner}}</b> {{verb}} <b>{{loser}}</b>, {{winnerScore}} to {{loserScore}}.
+    {literal}{{date}}<br /><b>{{winner}}</b> {{verb}} <b>{{loser}}</b>, {{winnerScore}} to {{loserScore}}.{/literal}
 </div>
-{/literal}
 {/template}
 
 
 /**
  */
 {template .newForm}
-{literal}
-<form ng-controller="NewGameCtrl" onsubmit="return false;">
+<form ng-controller="controllers.newGame" onsubmit="return false;">
     Opponent:
     <select ng-model="opponent">
-        <option ng-repeat="user in users" value="{{user.id}}">{{user.name}}</option>
+        {literal}<option ng-repeat="user in users" value="{{user.id}}">{{user.name}}</option>{/literal}
     </select><br />
     Your score: <input type="text" ng-model="player1score" /><br />
     Their score: <input type="text" ng-model="player2score" /><br />
     <input type="button" ng-click="submit()" value="Create"/><br />
-    <span ng-show="errorMsg">{{errorMsg}}</span>
+    <span ng-show="errorMsg">{lb}{lb}errorMsg{rb}{rb}</span>
 </form>
-{/literal}
 {/template}

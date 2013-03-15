@@ -6,11 +6,11 @@
 </head>
 <body>
     <div id="MenuContainer" style="float: left; padding: 5px; margin: 5px; border: 1px solid grey">
-        <div ng-controller="MenuCtrl" ng-include src="'menu.soy'" id="Menu"></div>
+        <div ng-include src="'Menu.menu.soy'" id="Menu"></div>
     </div>
     <div id="ContentContainer" style="float:left;">
-        <div ng-controller="UnapprovedCtrl" ng-include src="'games.unapproved.soy'" id="UnapprovedGames"></div>
-        <div ng-controller="GameListCtrl" ng-include src="'games.list.soy'" id="Newsfeed"></div>
+        <div ng-include src="'Games.unapprovedSection.soy'" id="UnapprovedGames"></div>
+        <div ng-include src="'Games.list.soy'" id="Newsfeed"></div>
     </div>
     <script src="js/angular.min.js"></script>
     <script src="js/en_US/module_home.js"></script>

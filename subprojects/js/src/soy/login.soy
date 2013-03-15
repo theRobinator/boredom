@@ -3,12 +3,10 @@
 /**
  */
 {template .form}
-{literal}
-<form onsubmit="return false;" ng-controller="LoginCtrl">
+<form onsubmit="return false;" ng-controller="{{robin.controllers.LoginCtrl.NAME}}">
     Username: <input type="text" name="username" ng-model="username" /><br />
     Password: <input type="password" name="password" ng-model="password" /><br />
     <button ng-click="login()">Log In</button> or <button ng-click="register()">Register</button>
-    <span ng-show="error">{{error}}</span>
+    {literal}<span ng-show="error">{{error}}</span>{/literal}
 </form>
-{/literal}
 {/template}

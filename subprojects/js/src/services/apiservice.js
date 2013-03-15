@@ -13,6 +13,12 @@ robin.services.APIService = function($http, $q) {
 };
 
 /**
+ * @type {string}
+ * @const
+ */
+robin.services.APIService.NAME = 'services.apiService';
+
+/**
  * @type {angular.$q}
  * @private
  */
@@ -67,8 +73,7 @@ robin.services.APIService.prototype.sendRequest = function(options) {
     return deferred.promise;
 };
 
-
-angular.module('services.apiService', [])
-    .factory('apiService', ['$http', '$q', function($http, $q) {
+angular.module(robin.services.APIService.NAME, [])
+    .factory(robin.services.APIService.NAME, ['$http', '$q', function($http, $q) {
         return new robin.services.APIService($http, $q);
     }]);

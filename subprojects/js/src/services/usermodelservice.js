@@ -11,8 +11,14 @@ robin.services.UserModelService = function() {
 };
 goog.inherits(robin.services.UserModelService, robin.services.ModelService);
 
+/**
+ * @type {string}
+ * @const
+ */
+robin.services.UserModelService.NAME = 'services.userModelService';
 
-angular.module('services.userModelService', [])
-    .factory('userModelService', function() {
+
+angular.module(robin.services.UserModelService.NAME, [])
+    .factory(robin.services.UserModelService.NAME, function() {
         return new robin.services.UserModelService();
     });

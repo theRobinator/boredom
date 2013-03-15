@@ -11,7 +11,14 @@ robin.services.NewsfeedModelService = function() {
 };
 goog.inherits(robin.services.NewsfeedModelService, robin.services.ModelService);
 
-angular.module('services.newsfeedModelService', [])
-    .factory('newsfeedModelService', function() {
+/**
+ * @type {string}
+ * @const
+ */
+robin.services.NewsfeedModelService.NAME = 'services.newsfeedModelService';
+
+
+angular.module(robin.services.NewsfeedModelService.NAME, [])
+    .factory(robin.services.NewsfeedModelService.NAME, function() {
         return new robin.services.NewsfeedModelService();
     });

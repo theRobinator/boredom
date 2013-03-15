@@ -59,8 +59,15 @@ robin.controllers.LoginCtrl = function($scope, apiService) {
     };
 };
 
-angular.module('controllers.login', ['services.apiService'])
-    .controller('LoginCtrl', ['$scope', 'apiService', robin.controllers.LoginCtrl])
+/**
+ * @type {string}
+ * @const
+ */
+robin.controllers.LoginCtrl.NAME = 'controllers.login';
+
+
+angular.module(robin.controllers.LoginCtrl.NAME, [robin.services.APIService.NAME])
+    .controller(robin.controllers.LoginCtrl.NAME, ['$scope', robin.services.APIService.NAME, robin.controllers.LoginCtrl])
     .run(['$templateCache', function($templateCache) {
-        $templateCache.put('login.form.soy', robin.soy.Login.form());
+        $templateCache.put('Login.form.soy', robin.soy.Login.form());
     }]);

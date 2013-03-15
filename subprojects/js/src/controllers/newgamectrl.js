@@ -41,25 +41,35 @@ robin.controllers.NewGameCtrl = function($scope, apiService, newGameList) {
     $scope['users'] = newGameList.getSource();
 };
 
+/**
+ * @type {string}
+ * @const
+ */
+robin.controllers.NewGameCtrl.NAME = 'controllers.newGame';
+
 
 // Initialize the module
-var newGameUsers;
-angular.module('controllers.newGame', ['services.apiService'])
-    .controller('NewGameCtrl', ['$scope', 'apiService', 'newGameCtrl_gameList', robin.controllers.NewGameCtrl])
+var newGameCtrl_gameList;
+angular.module(robin.controllers.NewGameCtrl.NAME, [robin.services.APIService.NAME])
+    .controller(robin.controllers.NewGameCtrl.NAME, ['$scope', robin.services.APIService.NAME, 'newGameCtrl_gameList', robin.controllers.NewGameCtrl])
     .factory('newGameCtrl_gameList', function() {
-        newGameUsers = new robin.collections.ArrayCollection();
-        return newGameUsers;
+        newGameCtrl_gameList = new robin.collections.ArrayCollection();
+        return newGameCtrl_gameList;
     })
     .run(['$templateCache', function($templateCache) {
-        $templateCache.put('games.newform.soy', robin.soy.Games.newForm());
+        $templateCache.put('Games.newForm.soy', robin.soy.Games.newForm());
     }]);
 
 
-goog.exportSymbol('robin.bootstrap.initializeNewGameForm', function(userJson) {
+/**
+ * @param {Object} userJson
+ */
+robin.controllers.NewGameCtrl.initialize = function(userJson) {
     var userList = robin.Utils.parseNodeResponse(userJson, robin.api.UserParser.parseListFromJson);
     injector.invoke(['$rootScope', function($rootScope) {
         $rootScope.$apply(function() {
-            newGameUsers.addAllAt(0, userList);
+            newGameCtrl_gameList.addAllAt(0, userList);
         });
     }]);
-});
+};
+goog.exportSymbol('robin.controllers.NewGameCtrl.initialize', robin.controllers.NewGameCtrl.initialize);

@@ -14,15 +14,15 @@ exports.handleRoute = function(request, response) {
         var promises = [];
 
         promises.push(userListApiCall.send(auth).then(function(data) {
-            response.write('<script type="text/javascript">robin.bootstrap.initializeMenu(' + JSON.stringify(data) + ');</script>');
+            response.write('<script type="text/javascript">robin.controllers.MenuCtrl.initialize(' + JSON.stringify(data) + ');</script>');
         }));
 
         promises.push(unapprovedGamesApiCall.send(auth).then(function(data) {
-            response.write('<script type="text/javascript">robin.bootstrap.initializeUnapprovedGames(' + JSON.stringify(data) + ');</script>');
+            response.write('<script type="text/javascript">robin.controllers.UnapprovedCtrl.initialize(' + JSON.stringify(data) + ');</script>');
         }));
 
         promises.push(newsfeedApiCall.send(auth).then(function(data) {
-            response.write('<script type="text/javascript">robin.bootstrap.initializeNewsfeed(' + JSON.stringify(data) + ');</script>');
+            response.write('<script type="text/javascript">robin.pages.Home.initializeNewsfeed(' + JSON.stringify(data) + ');</script>');
         }));
 
         return promises;

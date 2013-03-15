@@ -15,9 +15,15 @@ robin.controllers.GameListCtrl = function($scope, gameList) {
     $scope['games'] = gameList;
 };
 
+/**
+ * @const
+ * @type {string}
+ */
+robin.controllers.GameListCtrl.NAME = 'controllers.gameList';
 
-angular.module('controllers.gameList', ['directives.game', 'services.apiService'])
-    .controller('GameListCtrl', ['$scope', 'gameListCtrl_gameList', robin.controllers.GameListCtrl])
+
+angular.module(robin.controllers.GameListCtrl.NAME, [robin.directives.GameDirective.NAME, robin.services.APIService.NAME])
+    .controller(robin.controllers.GameListCtrl.NAME, ['$scope', 'gameListCtrl_gameList', robin.controllers.GameListCtrl])
     .run(['$templateCache', function($templateCache) {
-        $templateCache.put('games.list.soy', robin.soy.Games.list());
+        $templateCache.put('Games.list.soy', robin.soy.Games.list());
     }]);
