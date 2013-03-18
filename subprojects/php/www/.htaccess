@@ -1,0 +1,1 @@
+RewriteRule ^/~robink/bored/api/.*?$ /~robink/bored/api.php [QSA,L]

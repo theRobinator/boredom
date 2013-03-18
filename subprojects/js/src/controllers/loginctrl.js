@@ -1,7 +1,7 @@
 goog.provide('robin.controllers.LoginCtrl');
 
-goog.require('robin.api.APIEndpoints');
-goog.require('robin.api.UserParser');
+goog.require('robin.commands.LoginCommand');
+goog.require('robin.commands.RegisterCommand');
 goog.require('robin.Paths');
 goog.require('robin.services.APIService');
 goog.require('robin.soy.Login');
@@ -16,15 +16,7 @@ goog.require('robin.soy.Login');
 robin.controllers.LoginCtrl = function($scope, apiService) {
     $scope['login'] = function() {
         $scope['error'] = '';
-        apiService.sendRequest({
-            'endpoint': robin.api.APIEndpoints.LOGIN,
-            'getParams': {
-                'username': $scope['username'],
-                'password': $scope['password']
-            },
-            'parser': robin.api.UserParser.parseUserFromJson
-        })
-        .then(function(response) {
+        new robin.commands.LoginCommand(apiService, $scope['username'], $scope['password']).execute().then(function(response) {
             window.location = robin.Paths.HOME;
         },
         function(error) {
@@ -38,15 +30,8 @@ robin.controllers.LoginCtrl = function($scope, apiService) {
 
     $scope['register'] = function() {
         $scope['error'] = '';
-        apiService.sendRequest({
-            'endpoint': robin.api.APIEndpoints.REGISTER,
-            'getParams': {
-                'username': $scope['username'],
-                'password': $scope['password']
-            },
-            'parser': robin.api.UserParser.parseUserFromJson
-        })
-        .then(function(response) {
+        new robin.commands.RegisterCommand(apiService, $scope['username'], $scope['password']).execute().then(
+        function(response) {
             window.location = robin.Paths.HOME;
         },
         function(error) {

@@ -2,6 +2,7 @@ goog.provide('robin.controllers.UnapprovedCtrl');
 
 goog.require('robin.api.GameParser');
 goog.require('robin.collections.ArrayCollection');
+goog.require('robin.commands.ApproveGameCommand');
 goog.require('robin.directives.GameDirective');
 goog.require('robin.services.APIService');
 goog.require('robin.services.NewsfeedModelService');
@@ -32,31 +33,21 @@ robin.controllers.UnapprovedCtrl = function($scope, apiService, newsfeedModelSer
     };
 
     $scope['approve'] = function(gameId) {
-        apiService.sendRequest({
-            'endpoint': robin.api.APIEndpoints.GAME_APPROVE,
-            'getParams': {
-                'game_id': gameId
-            }
-        })
-        .then(function(response) {
-            removeGame(gameId, true);
-        }, function(error) {
-            $scope['errorMsg'] = error.getError().toString();
-        })
+        new robin.commands.ApproveGameCommand(apiService, gameId, true).execute().then(
+            function(response) {
+                removeGame(gameId, true);
+            }, function(error) {
+                $scope['errorMsg'] = error.getError().toString();
+            });
     };
 
     $scope['deny'] = function(gameId) {
-        apiService.sendRequest({
-            'endpoint': robin.api.APIEndpoints.GAME_DENY,
-            'getParams': {
-                'game_id': gameId
-            }
-        })
-        .then(function(response) {
-            removeGame(gameId, false);
-        }, function(error) {
-            $scope['errorMsg'] = error.getError().toString();
-        })
+        new robin.commands.ApproveGameCommand(apiService, gameId, false).execute().then(
+            function(response) {
+                removeGame(gameId, true);
+            }, function(error) {
+                $scope['errorMsg'] = error.getError().toString();
+            });
     }
 };
 

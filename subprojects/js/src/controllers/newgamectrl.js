@@ -1,7 +1,7 @@
 goog.provide('robin.controllers.NewGameCtrl');
 
-goog.require('robin.api.APIEndpoints');
 goog.require('robin.api.UserParser');
+goog.require('robin.commands.CreateGameCommand');
 goog.require('robin.services.APIService');
 goog.require('robin.soy.Games');
 goog.require('robin.Paths');
@@ -17,15 +17,7 @@ goog.require('robin.Utils');
 robin.controllers.NewGameCtrl = function($scope, apiService, newGameList) {
     $scope['submit'] = function() {
         $scope['errorMsg'] = '';
-        apiService.sendRequest({
-            'endpoint': robin.api.APIEndpoints.GAME_CREATE,
-            'getParams': {
-                'player2id': $scope['opponent'],
-                'player1score': $scope['player1score'],
-                'player2score': $scope['player2score'],
-                'date': Math.floor(goog.now() / 1000)
-            }
-        })
+        new robin.commands.CreateGameCommand(apiService, $scope['opponent'], $scope['player1score'], $scope['player2score']).execute()
         .then(function(response) {
             window.location = robin.Paths.HOME;
         },

@@ -1,7 +1,7 @@
 goog.provide('robin.controllers.MenuCtrl');
 
-goog.require('robin.api.APIEndpoints');
 goog.require('robin.api.UserParser');
+goog.require('robin.commands.LogoutCommand');
 goog.require('robin.Paths');
 goog.require('robin.services.APIService');
 goog.require('robin.services.UserModelService');
@@ -24,12 +24,10 @@ robin.controllers.MenuCtrl = function($scope, apiService, userList) {
     };
 
     $scope['logout'] = function() {
-        apiService.sendRequest({
-            'endpoint': robin.api.APIEndpoints.LOGOUT
-        })
-        .then(function(response) {
-            window.location = robin.Paths.LOGIN;
-        });
+        new robin.commands.LogoutCommand(apiService).execute().then(
+            function(response) {
+                window.location = robin.Paths.LOGIN;
+            });
     };
 };
 

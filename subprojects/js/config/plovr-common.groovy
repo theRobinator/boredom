@@ -5,7 +5,6 @@ level = 'VERBOSE'
 
 define['goog.DEBUG'] = false
 define['goog.LOCALE'] = configLocale
-define['robin.Constants.API_URL'] = '/~robink/bored/api'
 
 this['pretty-print'] = false
 this['treat-warnings-as-errors'] = true
